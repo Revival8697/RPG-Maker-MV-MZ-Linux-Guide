@@ -60,7 +60,7 @@ Out of 2 games pixi v5.x games I have:
 
 Note:
 - Updating from pixi v4 to v5 require modifying game codes.
-- `.min.js` is functionally the same as `.js` for end user with reduced file size.
+- `.min.js` is functionally the same as `.js` for end user with reduced file size. Just rename the file to not break compatibility.
 
 ## Others
 - fpsmeter.js: All of my games already have at [its latest version](https://github.com/darsain/fpsmeter/blob/master/dist/fpsmeter.min.js).
