@@ -25,7 +25,9 @@ Note:
 Copy the `www` folder and the `package.json` file from your game folder to the extracted `NW.js` folder.
 
 
-Open `package.json` (not the one inside the `www` folder) using a IDE like [Notepad++](https://notepad-plus-plus.org)and modify `"name":""` to `"name":"something_unique"`. Remember to save the file!
+Open `package.json` (NOT the one inside the `www` folder) using a IDE like [Notepad++](https://notepad-plus-plus.org)and modify `"name":""` to `"name":"something_unique"`. Remember to save the file!
+
+And you are done!
 
 Note:
 - If you don't have a `www` folder, you can make one and copy game resources to it, see below for examples of `www` folder. This is game dependent so you would have to figure it out yourself or overwrite the Game folder with the extracted NW.js folder.
