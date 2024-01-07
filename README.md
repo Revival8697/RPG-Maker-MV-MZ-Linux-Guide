@@ -63,12 +63,12 @@ Note:
 - `.min.js` is functionally the same as `.js` for end user with reduced file size.
 
 ## Others
-- fpsmeter.js: All of my games already have this at [the latest version](https://github.com/darsain/fpsmeter/blob/master/dist/fpsmeter.min.js).
+- fpsmeter.js: All of my games already have at [its latest version](https://github.com/darsain/fpsmeter/blob/master/dist/fpsmeter.min.js).
 - iphone-inline-video.browser.js: Serve no purpose? [Link to the latest version](https://github.com/fregante/iphone-inline-video/blob/master/dist/iphone-inline-video.min.js).
 - lz-string.js: [Link to the latest version](https://github.com/pieroxy/lz-string/blob/cf06e9a0e61daa8b120a474bbc80666f959ff7d4/libs/lz-string.min.js).
 - pixi-picture.js: Don't touch it. Just don't.
 - pixi-tilemap.js: All pixi v4 games aside from the v4.0.3 one can be update to [the latest version](https://github.com/pixijs/tilemap/blob/v4.x/dist/pixi-tilemap.js).
-- effekseer.min.js and effekseer.wasm: [Link to the latest version](https://github.com/effekseer/EffekseerForWebGL/releases/latest).
+- effekseer.min.js and effekseer.wasm: [The latest version can be extracted from this ZIP](https://github.com/effekseer/EffekseerForWebGL/releases/latest).
 - pako.min.js: [Link to the latest version](https://github.com/nodeca/pako/blob/master/dist/pako.min.js).
 - pixi-sound.js: [Link to the latest version](https://github.com/pixijs/sound/releases/tag/v3.0.5).
 - three.min.js: [Link to the latest version](https://github.com/mrdoob/three.js/blob/2ab27ea33ef2c991558e392d4f476ac08975be0d/build/three.min.js) (My Firefox browser can't load this page).
