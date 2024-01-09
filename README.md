@@ -50,8 +50,8 @@ The most notable one that can be updated is `pixi.js`.
 
 Open `/www/js/libs/pixi.js` in your game folder. Its version is written on the second line.
 
-Out of 14 pixi v4.x games I have:
-- 11 can be updated to [v4.8.9](https://pixijs.download/v4.8.9/pixi.min.js) (16 Jan 2020).
+Out of 15 pixi v4.x games I have:
+- 12 can be updated to [v4.8.9](https://pixijs.download/v4.8.9/pixi.min.js) (16 Jan 2020).
 - 2 can be updated to [v4.4.5](https://pixijs.download/v4.4.5/pixi.min.js) (04 Nov 2020).
 - 1 have a modifed variant of v4.0.3 (Oct 12 2016) that I'm unable to update.
 
