@@ -5,7 +5,7 @@ A guide for users to update their RPG Maker MV/MZ engine and plugins.
 
 ## That's old! How do I update it?
 ### Check if your game is a RPG Maker MV/MZ Game
-See if your game folder contain a file named `package.json`. Rename it to `package.json.backup` and launch the Game.exe, a window listing NW.js version should show up.
+See if your game folder contain a file named `package.json`. Rename it to `package.json.backup` and launch the Game.exe, a window showing the NW.js version should open.
 
 Remember to rename `package.json.backup` to `package.json` after testing.
 
