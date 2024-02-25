@@ -86,7 +86,7 @@ Note: When a newer version of the game engine is released, you can repeat the st
 - This can be done for as many RPG Maker MV/MZ games you have.
 
 ## Optional
-**Make a backup before this point.**
+**Make a backup before proceeding past this point.**
 
 ### Update the game libraries:
 You can check if a game is MV or MZ by opening `www/js/libs/pixi.js`, MV games use Pixi v4 while MZ games use Pixi v5.
