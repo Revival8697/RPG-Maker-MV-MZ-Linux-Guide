@@ -75,7 +75,7 @@ This guide will advise you on how to manage and play RPG Maker MV/MZ natively on
         └── www
     ```
 
-- You can have a `game_pic` file inside your `game_dir` so you could easily identify your game without having to remember the game name.
+- You can have a `game_pic` image file inside your `game_dir` so you could easily identify your game.
 
 - This can be done for as many RPG Maker MV/MZ games you have.
 
