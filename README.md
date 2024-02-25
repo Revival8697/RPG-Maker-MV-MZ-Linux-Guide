@@ -85,7 +85,7 @@ This guide will advise you on how to manage and play RPG Maker MV/MZ natively on
 ### Update the game libraries:
 You can check if a game is MV or MZ by opening `www/js/libs/pixi.js`, MV games use Pixi v4 while MZ games use Pixi v5.
 
-Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/123317), updating `pixi.js` will improve performance though I have not tested this.
+Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/123317), updating `pixi.js` improves performance, though I have not tested this.
 
 - MV games: All libraries that can be safely updated are in this repository `js/MV` folder.
     - Simply copy the files in `js/MV` over to your game's `www/js/libs` folder.
@@ -98,13 +98,15 @@ Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/12331
     - Simply copy the files in `js/MZ` over to your game's `www/js/libs` folder.
 
 ### Games files decryption
-1. Go to [Java-RPG-Maker-MV-Decrypter](https://gitlab.com/Petschko/Java-RPG-Maker-MV-Decrypter) and follow the instr\uctions.
+1. Go to [Java-RPG-Maker-MV-Decrypter](https://gitlab.com/Petschko/Java-RPG-Maker-MV-Decrypter) and follow the instructions.
 
 2. Delete the encrypted files in your game's `www` folder, most of the time, the `audio` and the `img` folders.
 
     Note: For unknown reasons, `www/img/system/Loading.png` and `www/img/system/Window.png` (if exist) are usually not encrypted so don't delete them!
 
-3. Edit the `www/data/System.json` file so the game see decrypted files:
+3. Copy the decrypted files to the game folder.
+
+4. Edit the `www/data/System.json` file so the game see decrypted files:
     - Change the `hasEncryptedImages` and `hasEncryptedAudio` parameters to `false`.
 
     - It should looks like this: `"hasEncryptedImages":false,"hasEncryptedAudio":false,"encryptionKey":"random_number"`
