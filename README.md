@@ -6,7 +6,7 @@ This guide will advise you on how to manage and play RPG Maker MV/MZ natively on
 
 2. Copy the `www` folder and the `package.json` file to the `game_dir`.
 
-    Note: If you don't have a `www` folder (usually with RPG Maker MZ), you have to create it yourself:
+    Note: If you don't have a `www` folder (RPG Maker MZ games), you have to create it yourself:
 
 - Create the `www` folder.
 
@@ -21,10 +21,10 @@ This guide will advise you on how to manage and play RPG Maker MV/MZ natively on
 
 - Copy `game_dir/www/package.json` to `game_dir/package.json`.
 
-- Open `game_dir/package.json`.
+3. Edit `game_dir/package.json`.
     - Edit the `name` parameter to an unique id (could be be the game name or `title`).
 
-    - Edit the `main` parameter so it point to `www/index.html` (**NOT** `index.html`). 
+    - For RPG Maker MZ: Edit the `main` parameter so it point to `www/index.html` (**NOT** `index.html`). 
     
     Example for `package.json`:
     ```
