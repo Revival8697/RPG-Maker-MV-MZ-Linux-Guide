@@ -41,11 +41,13 @@ This guide will advise you on how to manage and play RPG Maker MV/MZ natively on
     ```
 
 ## Prepare the game engine
-1. Download the Stable Linux 64-Bit NORMAL build and extract it to the same directory as `game_dir`.
+1. Download the Stable Linux 64-Bit NORMAL build from [this page](https://nwjs.io/downloads) and extract it to the same directory containing the `game_dir`.
 
 2. Rename the extracted folder to `NWJS`.
 
 3. Copy the `NWJS` folder in this repository and paste it over your `NWJS` folder.
+
+Note: When a newer version of the game engine is released, you can repeat the steps to update it.
 
 ## Linking the game to the engine.
 - Copy the `NWJS/Game.sh` file into your `game_dir`.
@@ -113,16 +115,16 @@ Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/12331
 
 ### Convert game images to webp
 This requires the image files to be decrypted. This reduces the images size.
-1. Go into the `www/img` folder.
 
-2. Open a terminal there.
+1. Open a terminal emulator in the `www/img` folder.
 
-3. Run `find . -name "*.png" | parallel -eta cwebp -lossless {} -o {}`.
+2. Run `find . -name "*.png" | parallel -eta cwebp -lossless {} -o {}`.
 
     Note:
-    - This requires [parallel](https://www.gnu.org/software/parallel) and [libwebp](https://chromium.googlesource.com/webm/libwebp) to be installed.
+    - This requires [parallel](https://www.gnu.org/software/parallel) and [libwebp](https://chromium.googlesource.com/webm/libwebp).
 
-    - The `www/icon/icon.png` must be a PNG file. You can optimize this file by running `oxipng --opt max --strip all icon.png`. Requires [oxipng](https://github.com/shssoichiro/oxipng) to be installed. This command can also be used to optimize to image files if the game can't read webp images.
+    - The `www/icon/icon.png` file must be a PNG. You can optimize this file by running `oxipng --opt max --strip all icon.png`, this requires [oxipng](https://github.com/shssoichiro/oxipng).
+    This command can also be used with the `--recursive` option to optimize to game images if the game can't read webp images.
 
 # Credits
 - [nwjs](https://github.com/nwjs/nw.js) for the NW.JS engine.
