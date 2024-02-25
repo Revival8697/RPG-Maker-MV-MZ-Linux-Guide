@@ -2,7 +2,7 @@
 This guide will advise you on how to manage and play RPG Maker MV/MZ natively on Linux.
 
 ## Prepare the game files
-1. Create a new folder, this will be where you store your game. I will can it `game_dir` in this guide.
+1. Create a new folder, this will be where you store your game. I will name it `game_dir` in this guide.
 
 2. Copy the `www` folder and the `package.json` file to the `game_dir`.
 
