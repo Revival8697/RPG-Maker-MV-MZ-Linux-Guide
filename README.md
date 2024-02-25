@@ -83,6 +83,8 @@ This guide will advise you on how to manage and play RPG Maker MV/MZ natively on
 **Make a backup before this point.**
 
 ### Update the game libraries:
+You can check if a game is MV or MZ by opening `www/js/libs/pixi.js`, MV games use Pixi v4 while MZ games use Pixi v5.
+
 Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/123317), updating `pixi.js` will improve performance though I have not tested this.
 
 - MV games: All libraries that can be safely updated are in this repository `js/MV` folder.
@@ -100,7 +102,7 @@ Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/12331
 
 2. Delete the encrypted files in your game's `www` folder, most of the time, the `audio` and the `img` folders.
 
-    Note: For unknown reasons, `www/img/system/Loading.png` and `www/img/system/Window.png` are usually not encrypted so don't delete them!
+    Note: For unknown reasons, `www/img/system/Loading.png` and `www/img/system/Window.png` (if exist) are usually not encrypted so don't delete them!
 
 3. Edit the `www/data/System.json` file so the game see decrypted files:
     - Change the `hasEncryptedImages` and `hasEncryptedAudio` parameters to `false`.
