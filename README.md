@@ -20,7 +20,7 @@ This guide will advise you on how to manage and play RPG Maker MV/MZ natively on
 - Copy `game_dir/www/package.json` to `game_dir/package.json`.
 
 - Open `game_dir/package.json`.
-    - Edit the `name` parameter to an unique id (could be be the game name or `"title"`).
+    - Edit the `name` parameter to an unique id (could be be the game name or `title`).
 
     - Edit the `main` parameter so it point to `www/index.html` (**NOT** `index.html`). 
     
