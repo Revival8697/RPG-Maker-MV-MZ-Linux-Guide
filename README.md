@@ -24,11 +24,11 @@ Requires [attr](https://savannah.nongnu.org/projects/attr) and [fuse2](https://g
     This is game dependent, not all games have the same folders and files.
 
 3. Edit `game_dir/package.json`.
-    - Edit the `name` parameter to an unique id (could be be the game name or `title`).
+    - Edit the `name` parameter to an unique id. Tthis can simply the game's name or `title`.
 
     - For RPG Maker MZ: Edit the `main` parameter so it point to `www/index.html` (**NOT** `index.html`). 
     
-    Example for `package.json`:
+    Example:
     ```
     {
         "name": "0123 Super fun game",
@@ -115,7 +115,10 @@ Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/12331
 
 4. Open the `www/data/System.json` file, edit the `hasEncryptedImages` and `hasEncryptedAudio` parameters to `false`.
 
-    Edited parameters: `"hasEncryptedImages":false,"hasEncryptedAudio":false`.
+    The edited parameters should look like this:
+    ```
+    ..., "hasEncryptedImages": false, "hasEncryptedAudio": false, ...
+    ```
 
 ### Optimize the image files
 Requires the image files to be decrypted. Reduces the image files size.
