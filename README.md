@@ -17,9 +17,9 @@ This guide will advise you on how to manage and play RPG Maker MV/MZ natively on
     
     - Game files examples: `index.html, package.json`.
 
-    This is game dependent, not all games have the same folders and files.
+        All games should have these 2 files.
 
-- Copy `game_dir/www/package.json` to `game_dir/package.json`.
+    This is game dependent, not all games have the same folders and files.
 
 3. Edit `game_dir/package.json`.
     - Edit the `name` parameter to an unique id (could be be the game name or `title`).
