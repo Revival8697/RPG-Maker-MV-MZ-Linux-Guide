@@ -92,9 +92,8 @@ Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/12331
 - MV games: All libraries that can be safely updated are in this repository `js/MV` folder.
     - Simply copy the files in `js/MV` over to your game's `www/js/libs` folder.
 
-    - Rename `pixi48.js` to `pixi.js`.
-
     Most games should handle just fine being updated to Pixi v4.8, but should you encounter any issues, fallback to Pixi v4.4.
+    - Rename `pixi44.js` to `pixi.js`.
 
 - MZ games: All libraries that can be safely updated are in this repository `js/MZ` folder.
     - Simply copy the files in `js/MZ` over to your game's `www/js/libs` folder.
