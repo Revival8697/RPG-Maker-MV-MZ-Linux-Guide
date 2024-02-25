@@ -55,7 +55,7 @@ Requires [attr](https://savannah.nongnu.org/projects/attr) and [fuse2](https://g
 
 Note: When a newer version of the game engine is released, you can repeat the steps to update it.
 
-## Linking the game to the engine.
+## Link the game files and engine together
 - Copy the `NWJS/Game.sh` file in this repository into your `game_dir`.
 
 - The file structure should look like this:
@@ -104,7 +104,7 @@ Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/12331
 - MZ games: All libraries that can be safely updated are in this repository `js/MZ` folder.
     - Simply copy the files in `js/MZ` over to your game's `www/js/libs` folder.
 
-### Games files decryption
+### Decrypt the game files
 1. Go to [Java-RPG-Maker-MV-Decrypter](https://gitlab.com/Petschko/Java-RPG-Maker-MV-Decrypter) and follow the instructions.
 
 2. Delete the encrypted files in your game's `www` folder, most of the time, the `audio` and the `img` folders.
@@ -118,7 +118,7 @@ Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/12331
     Edited parameters: `"hasEncryptedImages":false,"hasEncryptedAudio":false`.
 
 ### Optimize the image files
-This requires the image files to be decrypted. This reduces the images size.
+Requires the image files to be decrypted. Reduces the image files size.
 
 1. Copy the `optimize.sh` file in this repository to your game folder.
 
@@ -131,9 +131,9 @@ This requires the image files to be decrypted. This reduces the images size.
 Note: This script requires [pngcheck](http://www.libpng.org/pub/png/apps/pngcheck.html), [oxipng](https://github.com/shssoichiro/oxipng) and [libwebp](https://chromium.googlesource.com/webm/libwebp) to be installed.
 
 # Credits
-- [adlerosn](https://github.com/adlerosn/cicpoffs) for Windows case insensitive workaround.
+- [adlerosn](https://github.com/adlerosn/cicpoffs) for the Windows case-insensitive workaround.
 - [nwjs](https://github.com/nwjs/nw.js) for the NW.JS engine.
 - [m5kro](https://github.com/m5kro/Painless-Porter) for the `Game.sh` file.
-- [pixijs](https://github.com/pixijs/pixijs) for the Pixi engine.
+- [pixijs](https://github.com/pixijs/pixijs) for the Pixi library.
 - [effekseer](https://github.com/effekseer/EffekseerForWebGL) for the Effekseer library.
 - [localForage](https://github.com/localForage/localForage) for the localForage library.
