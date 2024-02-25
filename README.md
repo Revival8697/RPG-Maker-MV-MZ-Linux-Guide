@@ -1,6 +1,8 @@
 # RPG-Maker-MV/MZ-Linux-Guide
 This guide will advise you on how to manage and play RPG Maker MV/MZ natively on Linux.
 
+Requires [attr](https://savannah.nongnu.org/projects/attr) and [fuse2](https://github.com/libfuse/libfuse) to be installed.
+
 ## Prepare the game files
 1. Create a new folder, this will be where you store your game. I will name it `game_dir` in this guide.
 
@@ -129,6 +131,7 @@ This requires the image files to be decrypted. This reduces the images size.
 Note: This script requires [pngcheck](http://www.libpng.org/pub/png/apps/pngcheck.html), [oxipng](https://github.com/shssoichiro/oxipng) and [libwebp](https://chromium.googlesource.com/webm/libwebp) to be installed.
 
 # Credits
+- [adlerosn](https://github.com/adlerosn/cicpoffs) for Windows case insensitive workaround.
 - [nwjs](https://github.com/nwjs/nw.js) for the NW.JS engine.
 - [m5kro](https://github.com/m5kro/Painless-Porter) for the `Game.sh` file.
 - [pixijs](https://github.com/pixijs/pixijs) for the Pixi engine.
