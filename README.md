@@ -11,7 +11,9 @@ This guide will advise you on how to manage and play RPG Maker MV/MZ natively on
 - Create the `www` folder.
 
 - Move the game directories and files into the `www` directory.
-    - Game folders examples: `audio, css, data, dataEx, effects, fonts, icon, img, js, save`. 
+    - Game folders examples: `audio, css, data, effects, fonts, icon, img, js, save`.
+
+        Most of the time, these are all folders inside your game EXCEPT `locales` and `swiftshader`. 
     
     - Game files examples: `index.html, package.json`.
 
