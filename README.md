@@ -126,7 +126,7 @@ This requires the image files to be decrypted. This reduces the images size.
     ./optimize.sh
     ```
 
-Note: This script requires [pngcheck](http://www.libpng.org/pub/png/apps/pngcheck.html), [oxipng](https://github.com/shssoichiro/oxipng) and [cwebp](https://developers.google.com/speed/webp/docs/cwebp) to be installed.
+Note: This script requires [pngcheck](http://www.libpng.org/pub/png/apps/pngcheck.html), [oxipng](https://github.com/shssoichiro/oxipng) and [libwebp](https://chromium.googlesource.com/webm/libwebp) to be installed.
 
 # Credits
 - [nwjs](https://github.com/nwjs/nw.js) for the NW.JS engine.
