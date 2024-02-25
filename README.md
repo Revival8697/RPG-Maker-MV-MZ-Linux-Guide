@@ -115,18 +115,22 @@ Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/12331
 
     Edited parameters: `"hasEncryptedImages":false,"hasEncryptedAudio":false`.
 
-### Convert game images to webp
+### Convert image files to the WEBP format
 This requires the image files to be decrypted. This reduces the images size.
 
 1. Open a terminal emulator in the `www/img` folder.
 
-2. Run `find . -name "*.png" | parallel -eta cwebp -lossless {} -o {}`.
+2. Run `find . -name "*.png" | parallel cwebp -lossless {} -o {}`.
+
+    This script find all files with the `.png` extension in the current directory and convert them into the WEBP format losslessly utilizing multithreading while keeping the same file extension.
 
     Note:
     - This requires [parallel](https://www.gnu.org/software/parallel) and [libwebp](https://chromium.googlesource.com/webm/libwebp).
 
     - The `www/icon/icon.png` file must be a PNG. You can optimize this file by running `oxipng --opt max --strip all icon.png`, this requires [oxipng](https://github.com/shssoichiro/oxipng).
     This command can also be used with the `--recursive` option to optimize to game images if the game can't read webp images.
+
+  Note: If the game is expecting an [APNG](https://wiki.adminforge.de/wiki/APNG) file, converting it to WEBP will break the game.
 
 # Credits
 - [nwjs](https://github.com/nwjs/nw.js) for the NW.JS engine.
