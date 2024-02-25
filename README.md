@@ -47,6 +47,8 @@ This guide will advise you on how to manage and play RPG Maker MV/MZ natively on
 
 3. Copy the `NWJS` folder in this repository and paste it over your `NWJS` folder.
 
+4. Create an empty `www` folder inside `NWJS`.
+
 Note: When a newer version of the game engine is released, you can repeat the steps to update it.
 
 ## Linking the game to the engine.
