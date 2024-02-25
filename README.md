@@ -111,10 +111,9 @@ Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/12331
 
 3. Copy the decrypted files to the game folder.
 
-4. Edit the `www/data/System.json` file so the game see decrypted files:
-    - Change the `hasEncryptedImages` and `hasEncryptedAudio` parameters to `false`.
+4. Open the `www/data/System.json` file, edit the `hasEncryptedImages` and `hasEncryptedAudio` parameters to `false`.
 
-    - It should looks like this: `"hasEncryptedImages":false,"hasEncryptedAudio":false,"encryptionKey":"random_number"`
+    Edited parameters: `"hasEncryptedImages":false,"hasEncryptedAudio":false`.
 
 ### Convert game images to webp
 This requires the image files to be decrypted. This reduces the images size.
