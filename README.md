@@ -45,6 +45,8 @@ This guide will advise you on how to manage and play RPG Maker MV/MZ natively on
 ## Prepare the game engine
 1. Download the Stable Linux 64-Bit NORMAL build from [this page](https://nwjs.io/downloads) and extract it to the same directory containing the `game_dir`.
 
+    Note: If you want to debug the game, you can download the SDK build instead. Use F12 to launch DevTools.
+
 2. Rename the extracted folder to `NWJS`.
 
 3. Copy the `NWJS` folder in this repository and paste it over your `NWJS` folder.
