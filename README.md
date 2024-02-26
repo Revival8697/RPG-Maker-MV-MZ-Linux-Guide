@@ -131,7 +131,7 @@ Requires the image files to be decrypted. Reduces the image files size.
     ./optimize.sh
     ```
 
-Note: This script requires [pngcheck](http://www.libpng.org/pub/png/apps/pngcheck.html), [oxipng](https://github.com/shssoichiro/oxipng) and [libwebp](https://chromium.googlesource.com/webm/libwebp) to be installed.
+Note: This script requires [pngcheck](http://www.libpng.org/pub/png/apps/pngcheck.html), [oxipng](https://github.com/shssoichiro/oxipng), [libwebp](https://chromium.googlesource.com/webm/libwebp) and optionally [parallel](https://www.gnu.org/software/parallel) for multithreading to be installed.
 
 # Credits
 - [adlerosn](https://github.com/adlerosn/cicpoffs) for the Windows case-insensitive workaround.
