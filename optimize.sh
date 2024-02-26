@@ -5,7 +5,6 @@ set -e
 command -v pngcheck >/dev/null 2>&1 || { echo >&2 "pngcheck is required but it's not installed. Aborting."; exit 1; }
 command -v oxipng >/dev/null 2>&1 || { echo >&2 "oxipng is required but it's not installed. Aborting."; exit 1; }
 command -v cwebp >/dev/null 2>&1 || { echo >&2 "cwebp is required but it's not installed. Aborting."; exit 1; }
-command -v parallel >/dev/null 2>&1 || { echo >&2 "parallel is required but it's not installed. Aborting."; exit 1; }
 
 optimize_images()
 {
@@ -36,6 +35,11 @@ else
     echo >&2 "./www/icon/icon.png doesn't exist. Ignoring."
 fi
 
-find ./www -type f -name "*.png" ! -name "icon.png" | parallel optimize_images
+if command -v parallel >/dev/null 2>&1
+then
+    find ./www -type f -name "*.png" ! -name "icon.png" | parallel optimize_images
+else
+    find ./www -type f -name "*.png" ! -name "icon.png" -exec optimize_images {} \;
+fi
 
 echo "Finished."
