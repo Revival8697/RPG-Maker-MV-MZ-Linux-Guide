@@ -24,7 +24,7 @@ Requires [attr](https://savannah.nongnu.org/projects/attr) and [fuse2](https://g
     This is game dependent, not all games have the same folders and files.
 
 3. Edit `game_dir/package.json`.
-    - Edit the `name` parameter to an unique id. Tthis can simply the game's name or `title`.
+    - Edit the `name` parameter to an unique id. This can simply the game's name or `title`.
 
     - For RPG Maker MZ: Edit the `main` parameter so it point to `www/index.html` (**NOT** `index.html`). 
     
