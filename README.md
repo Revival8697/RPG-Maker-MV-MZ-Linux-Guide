@@ -105,11 +105,13 @@ Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/12331
     - Simply copy the files in `js/MZ` over to your game's `www/js/libs` folder.
 
 ### Decrypt the game files
+Some games don't encrypt their files.
+
 1. Go to [Java-RPG-Maker-MV-Decrypter](https://gitlab.com/Petschko/Java-RPG-Maker-MV-Decrypter) and follow the instructions.
 
 2. Delete the encrypted files in your game's `www` folder, most of the time, the `audio` and the `img` folders.
 
-    Note: For unknown reasons, `www/img/system/Loading.png` and `www/img/system/Window.png` (if exist) are usually not encrypted so don't delete them!
+    Note: `www/img/system/Loading.png` and `www/img/system/Window.png` (if exist) are not encrypted so don't delete them!
 
 3. Copy the decrypted files to the game folder.
 
