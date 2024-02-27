@@ -24,22 +24,22 @@ Requires [cicpoffs](https://github.com/adlerosn/cicpoffs) to be installed.
     This is game dependent, not all games have the same folders and files.
 
 3. Edit `game_dir/package.json`.
-    - Edit the `name` parameter to an unique id. This can simply the game's name or `title`.
+    - Edit the `name` parameter to an unique id. This can simply be the game's name or `title`.
 
-    - For RPG Maker MZ: Edit the `main` parameter so it point to `www/index.html` (**NOT** `index.html`). 
+    - For RPG Maker MZ: Edit the `main` parameter so to `www/index.html` and the `icon` parameter to `www/icon/icon.png`. 
     
     Example:
     ```
     {
-        "name": "0123 Super fun game",
+        "name": "Fun game",
         "main": "www/index.html",
-        "chromium-args": "--force-color-profile=srgb",
+        "js-flags": "--expose-gc",
         "window": {
-            "title": "",
-            "width": 1024,
-            "height": 768,
-            "position": "center",
-            "icon": "icon/icon.png"
+            "title": "Fun game v0.69",
+            "toolbar": false,
+            "width": 816,
+            "height": 624,
+            "icon": "www/icon/icon.png"
         }
     }
     ```
