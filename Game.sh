@@ -10,14 +10,14 @@ then
     if [ -d ./www ]
     then
         echo "'www' directory found."
-        if cp ./package.json ../NWJS/package.json
+        if cp ./package.json ../nwjs/package.json
         then
             echo "Copied package.json successfully."
         else
             echo "Failed to copy package.json. Exiting."; exit 1
         fi
         echo "Mounting..."
-        if cicpoffs ./www ../NWJS/www
+        if cicpoffs ./www ../nwjs/www
         then
             echo "Mounted successfully."
         else
@@ -33,14 +33,14 @@ fi
 if [[ "$XDG_SESSION_TYPE" == "wayland" ]]
 then
     echo "Launching as a Wayland application."
-    # ../NWJS/nw --ozone-platform=wayland; # Performance degradation
-    if ! ../NWJS/nw --ozone-platform=x11
+    # ../nwjs/nw --ozone-platform=wayland; # Performance degradation
+    if ! ../nwjs/nw --ozone-platform=x11
     then
         echo "Failed to launch. Exiting."; exit 1
     fi
 else
     echo "Launching as a X11 application."
-    if ! ../NWJS/nw --ozone-platform=x11
+    if ! ../nwjs/nw --ozone-platform=x11
     then
         echo "Failed to launch. Exiting."; exit 1
     fi
@@ -49,13 +49,13 @@ fi
 if command -v fusermount > /dev/null 2>&1
 then
     echo "Unmounting..." &
-    if fusermount -u ../NWJS/www
+    if fusermount -u ../nwjs/www
     then
         echo "Unmounted successfully."
     else
         echo "Failed to unmount. Exiting."; exit 1
     fi
-    if rm ../NWJS/package.json
+    if rm ../nwjs/package.json
     then
         echo "Removed package.json successfully."
     else
