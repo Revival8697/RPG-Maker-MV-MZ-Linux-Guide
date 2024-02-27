@@ -49,9 +49,9 @@ Requires [cicpoffs](https://github.com/adlerosn/cicpoffs) to be installed.
 
     Note: If you want to debug the game, you can download the SDK build instead. Use F12 to launch DevTools.
 
-2. Rename the extracted folder to `NWJS`.
+2. Rename the extracted folder to `nwjs`.
 
-3. Copy this repository's `NWJS` folder and paste it over your `NWJS` folder.
+3. Create an empty `www` folder inside the `nwjs folder`.
 
 Note: When a newer version of the game engine is released, you can repeat the steps to update it.
 
@@ -67,7 +67,7 @@ Note: When a newer version of the game engine is released, you can repeat the st
     │   ├── package.json
     │   ├── game_pic.webp
     │   └── www
-    └── NWJS
+    └── nwjs
         ├── chrome_crashpad_handler
         ├── credits.html
         ├── Game.sh
