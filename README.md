@@ -51,12 +51,12 @@ Requires [cicpoffs](https://github.com/adlerosn/cicpoffs) to be installed.
 
 2. Rename the extracted folder to `NWJS`.
 
-3. Copy the `NWJS` folder in this repository and paste it over your `NWJS` folder.
+3. Copy this repository's `NWJS` folder and paste it over your `NWJS` folder.
 
 Note: When a newer version of the game engine is released, you can repeat the steps to update it.
 
 ## Link the game files and engine together
-- Copy the `NWJS/Game.sh` file in this repository into your `game_dir`.
+- Copy this repository's `Game.sh` file to your `game_dir`.
 
 - The file structure should look like this:
     ```
@@ -95,14 +95,12 @@ You can check if a game is MV or MZ by opening `www/js/libs/pixi.js`, MV games u
 
 Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/123317), updating `pixi.js` improves performance, though I have not tested this.
 
-- MV games: All libraries that can be safely updated are in this repository `js/MV` folder.
-    - Simply copy the files in `js/MV` over to your game's `www/js/libs` folder.
+- MV games: Copy the files in this repository's `MV libs` folder over to your game's `www/js/libs` folder.
 
     Most games should handle just fine being updated to Pixi v4.8, but should you encounter any issues, fallback to Pixi v4.4.
-    - Rename `pixi44.js` to `pixi.js`.
+    - Rename `www/js/libs/pixi44.js` to `www/js/libs/pixi.js`.
 
-- MZ games: All libraries that can be safely updated are in this repository `js/MZ` folder.
-    - Simply copy the files in `js/MZ` over to your game's `www/js/libs` folder.
+- MZ games: Copy the files in this repository's `MZ libs` folder over to your game's `www/js/libs` folder.
 
 ### Decrypt the game files
 Some games don't encrypt their files.
@@ -125,7 +123,7 @@ Some games don't encrypt their files.
 ### Optimize the image files
 Requires the image files to be decrypted. Reduces the image files size.
 
-1. Copy the `optimize.sh` file in this repository to your game folder.
+1. Copy this repository's `optimize.sh` file to your game folder.
 
 2. Open a terminal in your game folder and run the script:
 
