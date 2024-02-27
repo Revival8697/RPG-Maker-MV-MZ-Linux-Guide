@@ -2,7 +2,7 @@
 
 set -e
 
-command -v attr >/dev/null 2>&1 || { echo >&2 "attr is required but it's not installed. Aborting."; exit 1; }
+command -v cicpoffs >/dev/null 2>&1 || { echo >&2 "cicpoffs is required but it's not installed. Aborting."; exit 1; }
 
 if command -v fusermount > /dev/null 2>&1
 then
@@ -17,7 +17,7 @@ then
             echo "Failed to copy package.json. Exiting."; exit 1
         fi
         echo "Mounting..."
-        if ../NWJS/lib/cicpoffs ./www ../NWJS/www
+        if cicpoffs ./www ../NWJS/www
         then
             echo "Mounted successfully."
         else

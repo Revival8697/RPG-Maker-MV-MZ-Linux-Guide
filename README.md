@@ -1,7 +1,7 @@
 # RPG-Maker-MV/MZ-Linux-Guide
 This guide will advise you on how to manage and play RPG Maker MV/MZ natively on Linux.
 
-Requires [attr](https://savannah.nongnu.org/projects/attr) and [fuse2](https://github.com/libfuse/libfuse) to be installed.
+Requires [cicpoffs](https://github.com/adlerosn/cicpoffs) to be installed.
 
 ## Prepare the game files
 1. Create a new folder, this will be where you store your game. I will name it `game_dir` in this guide.
