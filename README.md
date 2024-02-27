@@ -24,9 +24,9 @@ Requires [cicpoffs](https://github.com/adlerosn/cicpoffs) to be installed.
     This is game dependent, not all games have the same folders and files.
 
 3. Edit `game_dir/package.json`.
-    - Edit the `name` parameter to an unique id. This can simply be the game's name or `title`.
+    - Edit the `name` parameter to something unique. This can simply be the game's name or `title`.
 
-    - For RPG Maker MZ: Edit the `main` parameter so to `www/index.html` and the `icon` parameter to `www/icon/icon.png`. 
+    - For RPG Maker MZ: Edit the `main` parameter to `www/index.html` and the `icon` parameter to `www/icon/icon.png`. 
     
     Example:
     ```
@@ -51,7 +51,7 @@ Requires [cicpoffs](https://github.com/adlerosn/cicpoffs) to be installed.
 
 2. Rename the extracted folder to `nwjs`.
 
-3. Create an empty `www` folder inside the `nwjs folder`.
+3. Create an empty `www` folder inside the `nwjs` folder.
 
 Note: When a newer version of the game engine is released, you can repeat the steps to update it.
 
