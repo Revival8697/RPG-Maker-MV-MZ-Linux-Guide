@@ -45,9 +45,9 @@ Requires [cicpoffs](https://github.com/adlerosn/cicpoffs) to be installed.
     ```
 
 ## Prepare the game engine
-1. Download the Stable Linux 64-Bit NORMAL build from [this page](https://nwjs.io/downloads) and extract it to the same directory containing the `game_dir`.
+1. Download the Stable Linux 64-Bit SDK build from [this page](https://nwjs.io/downloads) and extract it to the same directory containing the `game_dir`.
 
-    Note: If you want to debug the game, you can download the SDK build instead. Use F12 to launch DevTools.
+    Note: The SDK build is recommended because it comes with DevTools that can be used to debug games (press F12 and switch to the Console tab).
 
 2. Rename the extracted folder to `nwjs`.
 
