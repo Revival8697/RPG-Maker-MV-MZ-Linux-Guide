@@ -51,37 +51,38 @@ Requires [cicpoffs](https://github.com/adlerosn/cicpoffs) to be installed.
     ```
 
 ## Link the game files and engine together
-- Open a terminal in your `game folder` and run the following command:
+- Open a terminal in your `game_dir` and run the following command:
     ```
     ln -s $XDG_DATA_HOME/porter/nwjs/Game.sh ./Game.sh
     ```
 
 - The file structure should look like this:
     ```
-    tree -L 2
-    .
-    ├── game_dir
-    │   ├── Game.sh
-    │   ├── package.json
-    │   ├── game_pic.webp
-    │   └── www
-    └── nwjs
-        ├── chrome_crashpad_handler
-        ├── credits.html
-        ├── Game.sh
-        ├── icudtl.dat
-        ├── lib
-        ├── locales
-        ├── nw
-        ├── nw_100_percent.pak
-        ├── nw_200_percent.pak
-        ├── resources.pak
-        ├── swiftshader
-        ├── v8_context_snapshot.bin
-        └── www
+    tree -L 1 ./game_dir
+    game_dir
+    ├── Game.sh <-- Symbolic link
+    ├── package.json
+    ├── game_pic.webp <-- Image file
+    └── www <-- Contain game files
+
+    tree -L 1 $XDG_DATA_HOME/porter/nwjs
+    nwjs
+    ├── chrome_crashpad_handler
+    ├── credits.html
+    ├── Game.sh <-- File being linked
+    ├── icudtl.dat
+    ├── lib
+    ├── locales
+    ├── nw
+    ├── nw_100_percent.pak
+    ├── nw_200_percent.pak
+    ├── resources.pak
+    ├── swiftshader
+    ├── v8_context_snapshot.bin
+    └── www <-- Empty, act as mount point
     ```
 
-- You can have a `game_pic` image file inside your `game_dir` so you could easily identify your game.
+- You should an image file inside your `game_dir` so you could easily identify your game.
 
 - This can be done for as many RPG Maker MV/MZ games you have.
 
