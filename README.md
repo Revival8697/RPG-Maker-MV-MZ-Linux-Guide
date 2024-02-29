@@ -45,9 +45,9 @@ Requires [cicpoffs](https://github.com/adlerosn/cicpoffs) to be installed.
     ```
 
 ## Prepare the game engine
-- Run `scripts/nwjs-manager.sh`
+- Run `nwjs-manager.sh`
     ```
-    ./scripts/nwjs-manager.sh
+    ./nwjs-manager.sh
     ```
 
 ## Link the game files and engine together
@@ -94,9 +94,9 @@ Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/12331
 
 - Open in a terminal in this repo.
 
-- Run `./scripts/libs-update.sh`
+- Run `libs-update.sh`
     ```
-    ./scripts/libs-update.sh path/to/game_dir
+    ./libs-update.sh path/to/game_dir
     ```
     Note: Most RPG Maker MV games should handle just fine being updated to Pixi v4.8, but should you encounter any issues, fallback to Pixi v4.4.
     - Rename `game_dir/www/js/libs/pixi44.js` to `game_dir/www/js/libs/pixi.js`.
@@ -124,9 +124,9 @@ Requires the image files to be decrypted. Reduces the image files size.
 
 - Open in a terminal in this repo folder.
 
-- Run `./scripts/optimize.sh`:
+- Run `optimize.sh`:
     ```
-    ./scripts/optimize.sh path/to/game_dir
+    ./optimize.sh path/to/game_dir
     ```
 
 Note: This script requires [pngcheck](http://www.libpng.org/pub/png/apps/pngcheck.html), [oxipng](https://github.com/shssoichiro/oxipng), [libwebp](https://chromium.googlesource.com/webm/libwebp) and optionally [parallel](https://www.gnu.org/software/parallel) for multithreading to be installed.
