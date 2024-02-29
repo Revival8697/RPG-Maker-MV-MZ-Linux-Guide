@@ -1,34 +1,26 @@
 # RPG-Maker-MV/MZ-Linux-Guide
-This guide will advise you on how to manage and play RPG Maker MV/MZ natively on Linux.
+This guide will assist you in running and managing RPG Maker MV/MZ games natively on Linux.
 
-Requires [cicpoffs](https://github.com/adlerosn/cicpoffs) to be installed.
+Prerequisite: [cicpoffs](https://github.com/adlerosn/cicpoffs) must be installed.
 
-## Prepare the game files
-1. Create a new folder, this will be where you store your game. I will name it `game_dir` in this guide.
+## Preparing the Game Files
+1. Create a new folder where you will store your game. For the purpose of this guide, let’s call it `game_dir`.
 
-2. Copy the `www` folder and the `package.json` file to the `game_dir`.
+2. Copy the `www` folder and the `package.json` file into `game_dir`.
+    **Note**: If your game does not have a `www` folder, you will need to create it:
+- Create a new folder and name it `www`.
 
-    Note: If you don't have a `www` folder (RPG Maker MZ games), you have to create it yourself:
+- Move the game folders and files into the `www` folder. The specific folders and files vary depending on the game, but here are the common ones:
+    - Folders: `audio`, `css`, `data`, `effects`, `fonts`, `icon`, `img`, `js`, `save`. Typically, you can copy all folders in yout game excluding `locales` and `swiftshader`.
 
-- Create the `www` folder.
-
-- Move the game folders and files into the `www` folder.
-    - Game folders examples: `audio, css, data, effects, fonts, icon, img, js, save`.
-
-        Most of the time, these are all folders inside your game EXCEPT `locales` and `swiftshader`. 
-    
-    - Game files examples: `index.html, package.json`.
-
-        All games should have these 2 files.
-
-    This is game dependent, not all games have the same folders and files.
+    - Files: `index.html`, `package.json`. All games should have these 2 files.
 
 3. Edit `game_dir/package.json`.
-    - Edit the `name` parameter to something unique. This can simply be the game's name or `title`.
+    - Change the `name` parameter to something unique. This could be the game’s name or `title`.
 
-    - For RPG Maker MZ: Edit the `main` parameter to `www/index.html` and the `icon` parameter to `www/icon/icon.png`. 
-    
-    Example:
+    - If you have to create the `www` folder: Change the `main` parameter to `www/index.html` and the `icon` parameter to `www/icon/icon.png`.
+
+    Here’s an example of how your `package.json` might look:
     ```
     {
         "name": "Fun game",
@@ -44,26 +36,26 @@ Requires [cicpoffs](https://github.com/adlerosn/cicpoffs) to be installed.
     }
     ```
 
-## Prepare the game engine
-- Run `nwjs-manager.sh`
+## Setting up the Game Engine
+- Run the `nwjs-manager.sh` script and follow the on-screen steps:
     ```
     ./nwjs-manager.sh
     ```
 
-## Link the game files and engine together
-- Open a terminal in your `game_dir` and run the following command:
+## Link the Game Files and Engine
+- Open a terminal in your `game_dir` folder and run the following command:
     ```
     ln -s $XDG_DATA_HOME/porter/nwjs/Game.sh ./Game.sh
     ```
 
-- The file structure should look like this:
+- Your file structure should look like this:
     ```
     tree -L 1 ./game_dir
     game_dir
     ├── Game.sh <-- Symbolic link
     ├── package.json
     ├── game_pic.webp <-- Image file
-    └── www <-- Contain game files
+    └── www <-- Contains game files
 
     tree -L 1 $XDG_DATA_HOME/porter/nwjs
     nwjs
@@ -79,59 +71,56 @@ Requires [cicpoffs](https://github.com/adlerosn/cicpoffs) to be installed.
     ├── resources.pak
     ├── swiftshader
     ├── v8_context_snapshot.bin
-    └── www <-- Empty, act as mount point
+    └── www <-- Empty, acts as mount point
     ```
 
-- You should an image file inside your `game_dir` so you could easily identify your game.
+- You should have an image file inside your `game_dir`. This will help you easily identify your game.
 
-- This can be done for as many RPG Maker MV/MZ games you have.
+- You can repeat this process for as many RPG Maker MV/MZ games as you have.
 
-## Optional
-**Make a backup before proceeding past this point.**
+## Optional modifications
 
 ### Update the game libraries:
-Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/123317), updating `pixi.js` improves performance, though I have not tested this.
+Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/123317), updating `pixi.js` can enhance performance. However, I did not test this.
 
-- Open in a terminal in this repo.
+- Open a terminal in this repository folder.
 
-- Run `libs-update.sh`
+- Execute the `libs-update.sh` script:
     ```
     ./libs-update.sh path/to/game_dir
     ```
-    Note: Most RPG Maker MV games should handle just fine being updated to Pixi v4.8, but should you encounter any issues, fallback to Pixi v4.4.
-    - Rename `game_dir/www/js/libs/pixi44.js` to `game_dir/www/js/libs/pixi.js`.
+    **Note**: Most RPG Maker MV games should handle being updated to Pixi v4.8 without any issues. If you encounter any problems, fallback to Pixi v4.4 by renaming `www/js/libs/pixi44.js` to `www/js/libs/pixi.js`.
 
-### Decrypt the game files
-Some games don't encrypt their files.
+### Decrypting the Game Files
+Some games do not encrypt their files.
 
-1. Go to [Java-RPG-Maker-MV-Decrypter](https://gitlab.com/Petschko/Java-RPG-Maker-MV-Decrypter) and follow the instructions.
+1. Visit [Java-RPG-Maker-MV-Decrypter](https://gitlab.com/Petschko/Java-RPG-Maker-MV-Decrypter#how-to-use) and follow the instructions provided.
 
-2. Delete the encrypted files in your game's `www` folder, most of the time, the `audio` and the `img` folders.
+2. Delete the encrypted files. Most of the time, these are the `www/audio` and `www/img` folders.
 
-    Note: `www/img/system/Loading.png` and `www/img/system/Window.png` (if exist) are not encrypted so don't delete them!
+    **Note**: `www/img/system/Loading.png` and `www/img/system/Window.png` files (if they exist) are not encrypted, so do not delete them.
 
 3. Copy the decrypted files to your `game_dir`.
 
-4. Open the `www/data/System.json` file, edit the `hasEncryptedImages` and `hasEncryptedAudio` parameters to `false`.
-
-    The edited parameters should look like this:
+4. Open the `www/data/System.json` file, set the `hasEncryptedImages` and `hasEncryptedAudio` parameters to `false`. The edited parameters should look like this:
     ```
     ..., "hasEncryptedImages": false, "hasEncryptedAudio": false, ...
     ```
 
-### Optimize the image files
-Requires the image files to be decrypted. Reduces the image files size.
+### Optimizing the Image Files
+This step requires the image files to be decrypted and helps reduce the size of the image files.
 
-- Open in a terminal in this repo folder.
+- Open a terminal in this repository folder.
 
-- Run `optimize.sh`:
+- Run the `optimize.sh` script:
     ```
     ./optimize.sh path/to/game_dir
     ```
 
-Note: This script requires [pngcheck](http://www.libpng.org/pub/png/apps/pngcheck.html), [oxipng](https://github.com/shssoichiro/oxipng), [libwebp](https://chromium.googlesource.com/webm/libwebp) and optionally [parallel](https://www.gnu.org/software/parallel) for multithreading to be installed.
+Note: This script requires [pngcheck](http://www.libpng.org/pub/png/apps/pngcheck.html), [oxipng](https://github.com/shssoichiro/oxipng), [libwebp](https://chromium.googlesource.com/webm/libwebp), and optionally [parallel](https://www.gnu.org/software/parallel) for multithreading to be installed.
 
 # Credits
+Check out these open-source projects:
 - https://github.com/adlerosn/cicpoffs
 - https://github.com/nwjs/nw.js
 - https://github.com/m5kro/Painless-Porter-CLI
