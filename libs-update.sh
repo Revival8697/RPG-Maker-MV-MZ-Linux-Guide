@@ -25,7 +25,8 @@ fi
 copy_files() {
     local variant=$1
     echo "Game is $variant."
-    if [[ ! -d "$game_dir"/www/js/libs_backup ]]; then
+    if [[ ! -d "$game_dir"/www/js/libs_backup ]]
+    then
         cp -R "$game_dir"/www/js/libs "$game_dir"/www/js/libs_backup
     fi
     cp -R ./"$variant libs"/* "$game_dir"/www/js/libs
@@ -39,5 +40,5 @@ elif grep -q " * pixi.js - v5."* "$file"
 then
     copy_files "MZ"
 else
-    echo "Can't detect pixi.js version. Aborting.
+    echo "Can't detect pixi.js version. Aborting."
 fi
