@@ -45,18 +45,16 @@ Requires [cicpoffs](https://github.com/adlerosn/cicpoffs) to be installed.
     ```
 
 ## Prepare the game engine
-1. Download the Stable Linux 64-Bit SDK build from [this page](https://nwjs.io/downloads) and extract it to the same directory containing the `game_dir`.
-
-    Note: The SDK build is recommended because it comes with DevTools that can be used to debug games (press F12 and switch to the Console tab).
-
-2. Rename the extracted folder to `nwjs`.
-
-3. Create an empty `www` folder inside the `nwjs` folder.
-
-Note: When a newer version of the game engine is released, you can repeat the steps to update it.
+- Run `scripts/nwjs-manager.sh`
+    ```
+    ./scripts/nwjs-manager.sh
+    ```
 
 ## Link the game files and engine together
-- Copy this repository's `Game.sh` file to your `game_dir`.
+- Open a terminal in your `game folder` and run the following command:
+    ```
+    ln -s $XDG_DATA_HOME/porter/nwjs/Game.sh ./Game.sh
+    ```
 
 - The file structure should look like this:
     ```
@@ -95,12 +93,12 @@ You can check if a game is MV or MZ by opening `www/js/libs/pixi.js`, MV games u
 
 Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/123317), updating `pixi.js` improves performance, though I have not tested this.
 
-- MV games: Copy the files in this repository's `MV libs` folder over to your game's `www/js/libs` folder.
+- MV games: Copy the files in this repository's `MV libs` folder over to `game_dir/www/js/libs` folder.
 
     Most games should handle just fine being updated to Pixi v4.8, but should you encounter any issues, fallback to Pixi v4.4.
-    - Rename `www/js/libs/pixi44.js` to `www/js/libs/pixi.js`.
+    - Rename `game_dir/www/js/libs/pixi44.js` to `game_dir/www/js/libs/pixi.js`.
 
-- MZ games: Copy the files in this repository's `MZ libs` folder over to your game's `www/js/libs` folder.
+- MZ games: Copy the files in this repository's `MZ libs` folder over to your game's `game_dir/www/js/libs` folder.
 
 ### Decrypt the game files
 Some games don't encrypt their files.
@@ -111,7 +109,7 @@ Some games don't encrypt their files.
 
     Note: `www/img/system/Loading.png` and `www/img/system/Window.png` (if exist) are not encrypted so don't delete them!
 
-3. Copy the decrypted files to the game folder.
+3. Copy the decrypted files to your `game_dir`.
 
 4. Open the `www/data/System.json` file, edit the `hasEncryptedImages` and `hasEncryptedAudio` parameters to `false`.
 
@@ -123,9 +121,9 @@ Some games don't encrypt their files.
 ### Optimize the image files
 Requires the image files to be decrypted. Reduces the image files size.
 
-1. Copy this repository's `optimize.sh` file to your game folder.
+1. Copy this repository's `scripts/optimize.sh` file to your `game_dir`.
 
-2. Open a terminal in your game folder and run the script:
+2. Open a terminal in your `game_dir` and run the script:
 
     ```
     ./optimize.sh
@@ -134,9 +132,12 @@ Requires the image files to be decrypted. Reduces the image files size.
 Note: This script requires [pngcheck](http://www.libpng.org/pub/png/apps/pngcheck.html), [oxipng](https://github.com/shssoichiro/oxipng), [libwebp](https://chromium.googlesource.com/webm/libwebp) and optionally [parallel](https://www.gnu.org/software/parallel) for multithreading to be installed.
 
 # Credits
-- [adlerosn](https://github.com/adlerosn/cicpoffs) for the Windows case-insensitive workaround.
-- [nwjs](https://github.com/nwjs/nw.js) for the NW.JS engine.
-- [m5kro](https://github.com/m5kro/Painless-Porter) for the `Game.sh` file.
-- [pixijs](https://github.com/pixijs/pixijs) for the Pixi library.
-- [effekseer](https://github.com/effekseer/EffekseerForWebGL) for the Effekseer library.
-- [localForage](https://github.com/localForage/localForage) for the localForage library.
+- https://github.com/adlerosn/cicpoffs
+- https://github.com/nwjs/nw.js
+- https://github.com/m5kro/Painless-Porter-CLI
+- https://github.com/pixijs/pixijs
+- https://github.com/darsain/fpsmeter
+- https://github.com/pixijs/tilemap/tree/v4.x
+- https://github.com/pieroxy/lz-string
+- https://github.com/effekseer/EffekseerForWebGL
+- https://github.com/localForage/localForage
