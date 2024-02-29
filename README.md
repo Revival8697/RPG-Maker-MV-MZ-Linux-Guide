@@ -11,7 +11,7 @@ Prerequisite: [cicpoffs](https://github.com/adlerosn/cicpoffs) must be installed
 - Create a new folder and name it `www`.
 
 - Move the game folders and files into the `www` folder. The specific folders and files vary depending on the game, but here are the common ones:
-    - Folders: `audio`, `css`, `data`, `effects`, `fonts`, `icon`, `img`, `js`, `save`. Typically, you can copy all folders in yout game excluding `locales` and `swiftshader`.
+    - Folders: `audio`, `css`, `data`, `effects`, `fonts`, `icon`, `img`, `js`, `save`. Typically, you can copy all folders in your game excluding `locales` and `swiftshader`.
 
     - Files: `index.html`, `package.json`. All games should have these 2 files.
 
@@ -37,10 +37,13 @@ Prerequisite: [cicpoffs](https://github.com/adlerosn/cicpoffs) must be installed
     ```
 
 ## Setting up the Game Engine
+- Open a terminal in this repository folder.
 - Run the `nwjs-manager.sh` script and follow the on-screen steps:
     ```
     ./nwjs-manager.sh
     ```
+
+- You only have to do this once. You can use this script to check for updates.
 
 ## Link the Game Files and Engine
 - Open a terminal in your `game_dir` folder and run the following command:
@@ -48,7 +51,7 @@ Prerequisite: [cicpoffs](https://github.com/adlerosn/cicpoffs) must be installed
     ln -s $XDG_DATA_HOME/porter/nwjs/Game.sh ./Game.sh
     ```
 
-- Your file structure should look like this:
+    Your file structure should look like this:
     ```
     tree -L 1 ./game_dir
     game_dir
@@ -56,7 +59,9 @@ Prerequisite: [cicpoffs](https://github.com/adlerosn/cicpoffs) must be installed
     ├── package.json
     ├── game_pic.webp <-- Image file
     └── www <-- Contains game files
+    ```
 
+    ```
     tree -L 1 $XDG_DATA_HOME/porter/nwjs
     nwjs
     ├── chrome_crashpad_handler
@@ -76,11 +81,9 @@ Prerequisite: [cicpoffs](https://github.com/adlerosn/cicpoffs) must be installed
 
 - You should have an image file inside your `game_dir`. This will help you easily identify your game.
 
-- You can repeat this process for as many RPG Maker MV/MZ games as you have.
-
 ## Optional modifications
 
-### Update the game libraries:
+### Update the game libraries
 Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/123317), updating `pixi.js` can enhance performance. However, I did not test this.
 
 - Open a terminal in this repository folder.
@@ -109,7 +112,6 @@ Some games do not encrypt their files.
 
 ### Optimizing the Image Files
 This step requires the image files to be decrypted and helps reduce the size of the image files.
-
 - Open a terminal in this repository folder.
 
 - Run the `optimize.sh` script:
@@ -117,7 +119,7 @@ This step requires the image files to be decrypted and helps reduce the size of 
     ./optimize.sh path/to/game_dir
     ```
 
-Note: This script requires [pngcheck](http://www.libpng.org/pub/png/apps/pngcheck.html), [oxipng](https://github.com/shssoichiro/oxipng), [libwebp](https://chromium.googlesource.com/webm/libwebp), and optionally [parallel](https://www.gnu.org/software/parallel) for multithreading to be installed.
+    **Note**: This script requires [pngcheck](http://www.libpng.org/pub/png/apps/pngcheck.html), [oxipng](https://github.com/shssoichiro/oxipng), [libwebp](https://chromium.googlesource.com/webm/libwebp) to be installed, and optionally [parallel](https://www.gnu.org/software/parallel) for multithreading.
 
 # Credits
 Check out these open-source projects:
