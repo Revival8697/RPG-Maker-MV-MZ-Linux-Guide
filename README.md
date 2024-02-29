@@ -92,11 +92,11 @@ Requires [cicpoffs](https://github.com/adlerosn/cicpoffs) to be installed.
 ### Update the game libraries:
 Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/123317), updating `pixi.js` improves performance, though I have not tested this.
 
-- Open in a terminal in this repo `scripts` folder.
+- Open in a terminal in this repo.
 
-- Run `./libs-update.sh`.
+- Run `./scripts/libs-update.sh`
     ```
-    ./libs-update.sh path/to/game_dir
+    ./scripts/libs-update.sh path/to/game_dir
     ```
     Note: Most RPG Maker MV games should handle just fine being updated to Pixi v4.8, but should you encounter any issues, fallback to Pixi v4.4.
     - Rename `game_dir/www/js/libs/pixi44.js` to `game_dir/www/js/libs/pixi.js`.
@@ -122,12 +122,11 @@ Some games don't encrypt their files.
 ### Optimize the image files
 Requires the image files to be decrypted. Reduces the image files size.
 
-1. Copy this repository's `scripts/optimize.sh` file to your `game_dir`.
+- Open in a terminal in this repo folder.
 
-2. Open a terminal in your `game_dir` and run the script:
-
+- Run `./scripts/optimize.sh`:
     ```
-    ./optimize.sh
+    ./scripts/optimize.sh path/to/game_dir
     ```
 
 Note: This script requires [pngcheck](http://www.libpng.org/pub/png/apps/pngcheck.html), [oxipng](https://github.com/shssoichiro/oxipng), [libwebp](https://chromium.googlesource.com/webm/libwebp) and optionally [parallel](https://www.gnu.org/software/parallel) for multithreading to be installed.
