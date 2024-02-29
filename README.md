@@ -90,16 +90,16 @@ Requires [cicpoffs](https://github.com/adlerosn/cicpoffs) to be installed.
 **Make a backup before proceeding past this point.**
 
 ### Update the game libraries:
-You can check if a game is MV or MZ by opening `www/js/libs/pixi.js`, MV games use Pixi v4 while MZ games use Pixi v5.
-
 Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/123317), updating `pixi.js` improves performance, though I have not tested this.
 
-- MV games: Copy the files in this repository's `MV libs` folder over to `game_dir/www/js/libs` folder.
+- Open in a terminal in this repo `scripts` folder.
 
-    Most games should handle just fine being updated to Pixi v4.8, but should you encounter any issues, fallback to Pixi v4.4.
+- Run `./libs-update.sh`.
+    ```
+    ./libs-update.sh path/to/game_dir
+    ```
+    Note: Most RPG Maker MV games should handle just fine being updated to Pixi v4.8, but should you encounter any issues, fallback to Pixi v4.4.
     - Rename `game_dir/www/js/libs/pixi44.js` to `game_dir/www/js/libs/pixi.js`.
-
-- MZ games: Copy the files in this repository's `MZ libs` folder over to your game's `game_dir/www/js/libs` folder.
 
 ### Decrypt the game files
 Some games don't encrypt their files.
