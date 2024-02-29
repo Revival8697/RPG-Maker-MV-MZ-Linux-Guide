@@ -8,7 +8,7 @@ command -v cicpoffs >/dev/null 2>&1 || { echo -e >&2 "cicpoffs is required but i
 if [ -d ./www ]
 then
     echo "'www' directory found."
-    if cp ./package.json ../nwjs/package.json
+    if cp ./package.json $XDG_DATA_HOME/porter/nwjs/package.json
     then
         echo "Copied package.json successfully."
     else
@@ -16,7 +16,7 @@ then
     fi
 
     echo "Mounting..."
-    if cicpoffs ./www ../nwjs/www
+    if cicpoffs ./www $XDG_DATA_HOME/porter/nwjs/www
     then
         echo "Mounted successfully."
     else
@@ -30,29 +30,29 @@ fi
 if [[ "$XDG_SESSION_TYPE" == "wayland" ]]
 then
     echo "Launching as a Wayland application."
-    # ../nwjs/nw --ozone-platform=wayland; # Performance degradation
-    if ! ../nwjs/nw --ozone-platform=x11
+    # $XDG_DATA_HOME/porter/nwjs/nw --ozone-platform=wayland; # Performance degradation
+    if ! $XDG_DATA_HOME/porter/nwjs/nw --ozone-platform=x11
     then
         echo "Failed to launch. Exiting."; exit 1
     fi
 
 else
     echo "Launching as a X11 application."
-    if ! ../nwjs/nw --ozone-platform=x11
+    if ! $XDG_DATA_HOME/porter/nwjs/nw --ozone-platform=x11
     then
         echo "Failed to launch. Exiting."; exit 1
     fi
 fi
 
 echo "Unmounting..."
-if fusermount -u ../nwjs/www
+if fusermount -u $XDG_DATA_HOME/porter/nwjs/www
 then
     echo "Unmounted successfully."
 else
     echo "Failed to unmount. Exiting."; exit 1
 fi
 
-if rm ../nwjs/package.json
+if rm $XDG_DATA_HOME/porter/nwjs/package.json
 then
     echo "Removed package.json successfully."
 else
