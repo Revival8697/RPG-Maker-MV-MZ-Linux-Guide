@@ -6,7 +6,7 @@ command -v pngcheck >/dev/null 2>&1 || { echo >&2 "pngcheck is required but it's
 command -v oxipng >/dev/null 2>&1 || { echo >&2 "oxipng is required but it's not installed. Aborting."; exit 1; }
 command -v cwebp >/dev/null 2>&1 || { echo >&2 "cwebp is required but it's not installed. Aborting."; exit 1; }
 
-# Check if the user provided a directory path.
+# Check if the user provide a directory path.
 if [ $# -ne 1 ]
 then
     echo "Usage: $0 path/to/game_dir"; exit 1
@@ -14,10 +14,10 @@ fi
 
 game_dir="${1%/}"
 
-# Check if input path is valid.
+# Check if the path is valid
 if [[ ! -d $game_dir ]]
 then
-    echo "Input path not valid."; exit 1
+    echo "Error: Provided path not valid."; exit 1
 fi
 
 optimize_images()
@@ -57,4 +57,4 @@ else
     find "$game_dir"/www -type f -name "*.png" ! -name "icon.png" -exec optimize_images {} \;
 fi
 
-echo "Finished."
+echo "Finished!"
