@@ -29,19 +29,15 @@ fi
 
 if [[ "$XDG_SESSION_TYPE" == "wayland" ]]
 then
-    echo "Launching as a Wayland application."
-    # $XDG_DATA_HOME/porter/nwjs/nw --ozone-platform=wayland; # Performance degradation
-    if ! $XDG_DATA_HOME/porter/nwjs/nw --ozone-platform=x11
+    echo "Launching as a native Wayland application."
+    if ! $XDG_DATA_HOME/porter/nwjs/nw --ozone-platform=x11  # Performance degradation if launch as Wayland.
     then
         echo "Failed to launch. Exiting."; exit 1
     fi
 
-else
-    echo "Launching as a X11 application."
-    if ! $XDG_DATA_HOME/porter/nwjs/nw --ozone-platform=x11
-    then
-        echo "Failed to launch. Exiting."; exit 1
-    fi
+elif ! $XDG_DATA_HOME/porter/nwjs/nw --ozone-platform=x11
+then
+    echo "Failed to launch. Exiting."; exit 1
 fi
 
 echo "Unmounting..."

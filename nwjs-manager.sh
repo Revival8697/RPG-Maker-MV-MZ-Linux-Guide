@@ -60,13 +60,10 @@ then
     else
         echo "Error: $INPUT is not a valid version."
     fi
-# If the user just press Enter.
+# If nwjs-version.txt doesn't exist OR if CURRENT version is not LATEST, download the latest version.
+elif [[ ! -f "$CURRENT" ]] || [[ $(cat "$CURRENT") != "$LATEST" ]]
+then
+    download "$LATEST"
 else
-    # If nwjs-version.txt doesn't exist OR if CURRENT version is not LATEST, download the latest version.
-    if [[ ! -f "$CURRENT" ]] || [[ $(cat "$CURRENT") != "$LATEST" ]]
-    then
-        download "$LATEST"
-    else
-        echo "$LATEST is already up to date."
-    fi
+    echo "$LATEST is already up to date."
 fi
