@@ -1,86 +1,21 @@
 # RPG-Maker-MV/MZ-Linux-Guide
 This guide will assist you in running and managing RPG Maker MV/MZ games natively on Linux.
 
-Prerequisite: [cicpoffs](https://github.com/adlerosn/cicpoffs) must be installed.
-
-## Preparing the Game Files
-1. Create a new folder where you will store your game. For the purpose of this guide, let’s call it `game_dir`.
-
-2. Copy the `www` folder and the `package.json` file into `game_dir`.
-    **Note**: If your game does not have a `www` folder, you will need to create it:
-- Create a new folder and name it `www`.
-
-- Move the game folders and files into the `www` folder. The specific folders and files vary depending on the game, but here are the common ones:
-    - Folders: `audio`, `css`, `data`, `effects`, `fonts`, `icon`, `img`, `js`, `save`. Typically, you can copy all folders in your game excluding `locales` and `swiftshader`.
-
-    - Files: `index.html`, `package.json`. All games should have these 2 files.
-
-3. Edit `game_dir/package.json`.
-    - Change the `name` parameter to something unique. This could be the game’s name or `title`.
-
-    - If you have to create the `www` folder: Change the `main` parameter to `www/index.html` and the `icon` parameter to `www/icon/icon.png`.
-
-    Here’s an example of how your `package.json` might look:
-    ```
-    {
-        "name": "Fun game",
-        "main": "www/index.html",
-        "js-flags": "--expose-gc",
-        "window": {
-            "title": "Fun game v0.69",
-            "toolbar": false,
-            "width": 816,
-            "height": 624,
-            "icon": "www/icon/icon.png"
-        }
-    }
-    ```
-
 ## Setting up the Game Engine
 - Open a terminal in this repository folder.
 - Run the `nwjs-manager.sh` script and follow the on-screen steps:
     ```
     ./nwjs-manager.sh
     ```
+    **Note**: You only have to run this once. You can use this script to check for updates.
 
-- You only have to do this once. You can use this script to check for updates.
-
-## Link the Game Files and Engine
-- Open a terminal in your `game_dir` folder and run the following command:
+## Preparing the Game Folder
+- Open a terminal in this repository folder.
+- Run the `game-setup.sh` script and follow the on-screen steps:
     ```
-    ln -s $XDG_DATA_HOME/porter/nwjs/Game.sh ./Game.sh
+    ./game-setup.sh path/to/game_dir
     ```
-
-    Your file structure should look like this:
-    ```
-    tree -L 1 ./game_dir
-    game_dir
-    ├── Game.sh <-- Symbolic link
-    ├── package.json
-    ├── game_pic.webp <-- Image file
-    └── www <-- Contains game files
-    ```
-
-    ```
-    tree -L 1 $XDG_DATA_HOME/porter/nwjs
-    nwjs
-    ├── chrome_crashpad_handler
-    ├── credits.html
-    ├── Game.sh <-- File being linked
-    ├── icudtl.dat
-    ├── lib
-    ├── locales
-    ├── nw
-    ├── nw_100_percent.pak
-    ├── nw_200_percent.pak
-    ├── resources.pak
-    ├── swiftshader
-    ├── v8_context_snapshot.bin
-    └── www <-- Empty, acts as mount point
-    ```
-
-- You should have an image file inside your `game_dir`. This will help you easily identify your game.
-
+    **Note**: "path/to/game_dir" is the path to the folder that contain the "Game.exe".
 ## Optional modifications
 
 ### Update the game libraries

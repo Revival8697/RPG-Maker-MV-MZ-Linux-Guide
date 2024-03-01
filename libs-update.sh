@@ -1,6 +1,8 @@
-#!/bin/env bash
+#!/bin/bash
 
-# Check if the user provided a directory path.
+set -e
+
+# Check if the user provide a directory path.
 if [ $# -ne 1 ]
 then
     echo "Usage: $0 path/to/game_dir"; exit 1
@@ -8,18 +10,18 @@ fi
 
 game_dir="${1%/}"
 
-# Check if input path is valid.
-if [[ ! -d $game_dir ]]
+# Check if the path is valid
+if [[ ! -d "$game_dir" ]]
 then
-    echo "Input path not valid."; exit 1
+    echo "Error: Provided path not valid."; exit 1
 fi
 
-file="$game_dir"/www/js/libs/pixi.js
+pixi="$game_dir"/www/js/libs/pixi.js
 
 # Check if input path is a RPG Maker MV/MZ game.
-if [[ ! -e $file ]]
+if [[ ! -e "$pixi"/ ]]
 then
-    echo "Input path is not a RPG Maker MV/MZ game."; exit 1
+    echo "Error: Input path is not a RPG Maker MV/MZ game."; exit 1
 fi
 
 copy_files() {
@@ -33,12 +35,14 @@ copy_files() {
 }
 
 # Find which variant the game is.
-if grep -q "pixi.js - v4." "$file"
+if grep -q "pixi.js - v4." "$pixi"
 then
     copy_files "MV"
-elif grep -q "pixi.js - v5." "$file"
+elif grep -q "pixi.js - v5." "$pixi"
 then
     copy_files "MZ"
 else
-    echo "Can't detect pixi.js version. Aborting."
+    echo "Error: Can't detect pixi.js version. Aborting."
 fi
+
+echo "Finished!"
