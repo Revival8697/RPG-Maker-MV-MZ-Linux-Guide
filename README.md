@@ -15,7 +15,7 @@ This guide will assist you in running and managing RPG Maker MV/MZ games nativel
     ```
     ./game-setup.sh path/to/game_dir
     ```
-    **Note**: "path/to/game_dir" is the path to the folder that contain the "Game.exe".
+
 ## Optional modifications
 
 ### Update the game libraries

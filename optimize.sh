@@ -14,10 +14,10 @@ fi
 
 game_dir="${1%/}"
 
-# Check if the path is valid
-if [[ ! -d $game_dir ]]
+# Check if input path is a RPG Maker MV/MZ game
+if [[ ! -d "$game_dir"/www ]]
 then
-    echo "Error: Provided path not valid."; exit 1
+    echo "Error: Input path is not a RPG Maker MV/MZ game."; exit 1
 fi
 
 optimize_images()

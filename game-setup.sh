@@ -12,10 +12,10 @@ fi
 
 game_dir="${1%/}"
 
-# Check if the path is valid
-if [[ ! -d $game_dir ]]
+# Check if input path is a RPG Maker MV/MZ game
+if [[ ! -f "$game_dir"/package.json ]]
 then
-    echo "Error: Provided path not valid."; exit 1
+    echo "Error: Input path is not a RPG Maker MV/MZ game."; exit 1
 fi
 
 # Check if "www" folder exists in game_dir
