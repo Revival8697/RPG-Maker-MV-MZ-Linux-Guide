@@ -10,16 +10,8 @@ fi
 
 game_dir="${1%/}"
 
-# Check if the path is valid
-if [[ ! -d "$game_dir" ]]
-then
-    echo "Error: Provided path not valid."; exit 1
-fi
-
-pixi="$game_dir"/www/js/libs/pixi.js
-
-# Check if input path is a RPG Maker MV/MZ game.
-if [[ ! -e "$pixi"/ ]]
+# Check if input path is a RPG Maker MV/MZ game
+if [[ ! -f "$game_dir"/www/js/libs/pixi.js ]]
 then
     echo "Error: Input path is not a RPG Maker MV/MZ game."; exit 1
 fi
