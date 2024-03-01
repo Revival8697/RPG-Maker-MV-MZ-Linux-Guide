@@ -33,10 +33,10 @@ copy_files() {
 }
 
 # Find which variant the game is.
-if grep -q " * pixi.js - v4."* "$file"
+if grep -q "pixi.js - v4." "$file"
 then
     copy_files "MV"
-elif grep -q " * pixi.js - v5."* "$file"
+elif grep -q "pixi.js - v5." "$file"
 then
     copy_files "MZ"
 else
