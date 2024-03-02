@@ -3,7 +3,7 @@
 set -e
 
 # Check for required commands
-for cmd in pngcheck oxipng cwebp parallel
+for cmd in jq pngcheck oxipng cwebp parallel
 do
   if ! command -v $cmd >/dev/null 2>&1
   then
@@ -23,6 +23,11 @@ game_dir="${1%/}"
 if [[ ! -d "$game_dir"/www ]]
 then
   echo "Error: Input path is not a RPG Maker MV/MZ game."; exit 1
+fi
+
+if [[ $(jq -r '.hasEncryptedImages' "$game_dir"/www/data/System.json) == "true" ]]
+then
+    echo "Files are encrypted. Run the decrypt.sh script."; exit 1
 fi
 
 # Function to optimize image files
