@@ -2,13 +2,20 @@
 
 set -e
 
-command -v curl >/dev/null 2>&1 || { echo >&2 "curl is required but it's not installed. Aborting."; exit 1; }
-command -v jq >/dev/null 2>&1 || { echo >&2 "jq is required but it's not installed. Aborting."; exit 1; }
+# Check for required commands
+for cmd in curl jq
+do
+  if ! command -v $cmd >/dev/null 2>&1
+  then
+    echo >&2 "$cmd is required but it's not installed. Aborting."; exit 1
+  fi
+done
 
 URL="https://nwjs.io/versions"
 TMP_FILE="/tmp/versions.json"
 CURRENT="$XDG_DATA_HOME/nwjs/version.txt"
 
+# Function to download, extract NWJS. Copy "Game.sh" to "target_dir"
 download() {
     local version=$1
     local url="https://dl.nwjs.io/${version}/nwjs-sdk-${version}-linux-x64.tar.gz"
@@ -25,45 +32,41 @@ download() {
         mkdir "$target_dir"/www
         cp ./Game.sh "$target_dir"
         echo "$version" > "$CURRENT"
-        echo "Finished!"
     else
         echo "Error: Failed to download or extract."; exit 1
     fi
 }
 
-# Query the URL and store the response in /tmp
+# Query the URL
 echo -e "Querying available versions...\n"
 if ! curl -fsSL -o "$TMP_FILE" "$URL"
 then
     echo "Error: Failed to query."; exit 1
 fi
 
-# Get LATEST version from response
 LATEST=$(jq -r '.latest' "$TMP_FILE")
-
-# Get valid VERSIONS from response
 VERSIONS=$(jq -r '.versions[].version' "$TMP_FILE" | head -20 | awk '{ORS = (NR%5 ? ", " : "\n")} {print}')
-echo -e "Listing 20 most recent versions:\n$VERSIONS\n"
 
-echo -e "Enter the version (including the v) you wish to download."`
-`"\nLeft blank and press Enter to download the latest version."
+echo -e "Listing 20 most recent versions:\n$VERSIONS\n"
+echo -e "Enter the version (including the v) you wish to download.\nLeft blank and press Enter to download the latest version."
 
 read INPUT
 
-# Check if the user entered something
+# Check if the user enter a valid version
 if [[ -n "$INPUT" ]]
 then
-    # Check if the entered version is valid
     if [[ "$VERSIONS" =~ "$INPUT" ]]
     then
         download "$INPUT"
     else
         echo "Error: $INPUT is not a valid version."
     fi
-# If nwjs-version.txt doesn't exist OR if CURRENT version is not LATEST, download the latest version
+# If nwjs-version.txt doesn't exist of if the current version is not the latest, download the latest version
 elif [[ ! -f "$CURRENT" ]] || [[ $(cat "$CURRENT") != "$LATEST" ]]
 then
     download "$LATEST"
 else
     echo "$LATEST is already up to date."
 fi
+
+echo "Finished!"
