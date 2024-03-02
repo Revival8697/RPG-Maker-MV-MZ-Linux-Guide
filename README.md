@@ -3,6 +3,7 @@ This guide will assist you in running and managing RPG Maker MV/MZ games nativel
 
 ## Setting up the Game Engine
 - Open a terminal in this repository folder.
+
 - Run the `nwjs-manager.sh` script and follow the on-screen steps:
     ```
     ./nwjs-manager.sh
@@ -11,6 +12,7 @@ This guide will assist you in running and managing RPG Maker MV/MZ games nativel
 
 ## Preparing the Game Folder
 - Open a terminal in this repository folder.
+
 - Run the `game-setup.sh` script and follow the on-screen steps:
     ```
     ./game-setup.sh path/to/game_dir
@@ -36,6 +38,7 @@ Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/12331
     ```
     ./decrypt.sh path/to/game_dir
     ```
+
 ### Optimizing the Image Files
 This step requires the image files to be decrypted and helps reduce the size of the image files.
 - Open a terminal in this repository folder.
@@ -44,8 +47,6 @@ This step requires the image files to be decrypted and helps reduce the size of 
     ```
     ./optimize.sh path/to/game_dir
     ```
-
-    **Note**: This script requires [pngcheck](http://www.libpng.org/pub/png/apps/pngcheck.html), [oxipng](https://github.com/shssoichiro/oxipng), [libwebp](https://chromium.googlesource.com/webm/libwebp) to be installed, and optionally [parallel](https://www.gnu.org/software/parallel) for multithreading.
 
 # Credits
 Check out these open-source projects:
