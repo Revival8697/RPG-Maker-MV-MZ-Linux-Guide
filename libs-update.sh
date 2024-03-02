@@ -2,7 +2,7 @@
 
 set -e
 
-# Check if the user provide a directory path.
+# Check if the user provided a directory path.
 if [ $# -ne 1 ]
 then
     echo "Usage: $0 path/to/game_dir"; exit 1
@@ -18,9 +18,11 @@ else
     pixi="$game_dir"/www/js/libs/pixi.js
 fi
 
+# Function to copy files from the "storage" folder
 copy_files() {
     local variant=$1
     echo "Game is $variant."
+    # Backup original files
     if [[ ! -d "$game_dir"/www/js/libs_backup ]]
     then
         cp -R "$game_dir"/www/js/libs "$game_dir"/www/js/libs_backup
@@ -28,7 +30,7 @@ copy_files() {
     cp -R ./storage/"$variant libs"/* "$game_dir"/www/js/libs
 }
 
-# Find which variant the game is.
+# Check if the game is MV or MZ
 if grep -q "pixi.js - v4." "$pixi"
 then
     copy_files "MV"
@@ -36,7 +38,7 @@ elif grep -q "pixi.js - v5." "$pixi"
 then
     copy_files "MZ"
 else
-    echo "Error: Can't detect pixi.js version. Aborting."
+    echo "Error: Can't detect pixi.js version. Aborting."; exit 1
 fi
 
 echo "Finished!"
