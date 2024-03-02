@@ -50,19 +50,21 @@ else
     # Delete everything except "www"
     find "$game_dir" -mindepth 1 -maxdepth 1 ! -name "www" -exec rm -rf {} \;
 
-    # Copy and edit MZ package.json
+    # Copy MZ "package.json"
     if [[ -e "$game_dir"/www/package.json ]]
     then
         cp "$game_dir"/www/package.json "$game_dir"/package.json
-        echo -e "\nEnter something unique to indentify this game (can simply the game's name).\n"
-        read NAME
-        jq ".name = \"$NAME\"" "$game_dir"/package.json > "$game_dir"/package.json.tmp && mv "$game_dir"/package.json.tmp "$game_dir"/package.json
-        jq '.main = "www/index.html" | .window.icon = "www/icon/icon.png"' "$game_dir"/package.json > "$game_dir"/package.json.tmp && mv "$game_dir"/package.json.tmp "$game_dir/package.json"
     else
-        echo "Error: package.json does not exist in the 'www' directory."
-        exit 1
+        echo "Error: package.json does not exist in the 'www' directory."; exit 1
     fi
 fi
+
+# Edit "package.json"
+echo -e "\nEnter something unique to indentify this game (can simply the game's name):"
+read NAME
+jq ".name = \"$NAME\"" "$game_dir"/package.json > "$game_dir"/package.json.tmp
+mv "$game_dir"/package.json.tmp "$game_dir"/package.json
+jq '.main = "www/index.html" | .window.icon = "www/icon/icon.png"' "$game_dir"/package.json > "$game_dir"/package.json.temp && mv "$game_dir"/package.json.temp "$game_dir/package.json"
 
 # Check if user have setup the Game Engine
 if [ ! -f "$XDG_DATA_HOME"/nwjs/Game.sh ]
