@@ -21,13 +21,13 @@ fi
 # Check if "www" folder exists in game_dir
 if [ -d "$game_dir"/www ]
 then
-    echo "MV detected."
+    echo "Game is MV."
 
     # Delete everything except "www" and "package.json"
     find "$game_dir" -mindepth 1 -maxdepth 1 ! -name "www" ! -name "package.json" -exec rm -rf {} \;
 
 else
-    echo "MZ detected. Repackaging..."
+    echo "Game is MV. Repackaging..."
 
     mkdir "$game_dir"/www
 
