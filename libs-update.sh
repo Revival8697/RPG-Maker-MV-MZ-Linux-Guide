@@ -14,6 +14,8 @@ game_dir="${1%/}"
 if [[ ! -f "$game_dir"/www/js/libs/pixi.js ]]
 then
     echo "Error: Input path is not a RPG Maker MV/MZ game."; exit 1
+else
+    pixi="$game_dir"/www/js/libs/pixi.js
 fi
 
 copy_files() {
