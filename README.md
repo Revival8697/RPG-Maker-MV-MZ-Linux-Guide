@@ -30,21 +30,12 @@ Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/12331
     **Note**: Most RPG Maker MV games should handle being updated to Pixi v4.8 without any issues. If you encounter any problems, fallback to Pixi v4.4 by renaming `www/js/libs/pixi44.js` to `www/js/libs/pixi.js`.
 
 ### Decrypting the Game Files
-Some games do not encrypt their files.
+- Open a terminal in this repository folder.
 
-1. Visit [Java-RPG-Maker-MV-Decrypter](https://gitlab.com/Petschko/Java-RPG-Maker-MV-Decrypter#how-to-use) and follow the instructions provided.
-
-2. Delete the encrypted files. Most of the time, these are the `www/audio` and `www/img` folders.
-
-    **Note**: `www/img/system/Loading.png` and `www/img/system/Window.png` files (if they exist) are not encrypted, so do not delete them.
-
-3. Copy the decrypted files to your `game_dir`.
-
-4. Open the `www/data/System.json` file, set the `hasEncryptedImages` and `hasEncryptedAudio` parameters to `false`. The edited parameters should look like this:
+- Execute the `decrypt.sh` script:
     ```
-    ..., "hasEncryptedImages": false, "hasEncryptedAudio": false, ...
+    ./decrypt.sh path/to/game_dir
     ```
-
 ### Optimizing the Image Files
 This step requires the image files to be decrypted and helps reduce the size of the image files.
 - Open a terminal in this repository folder.
@@ -67,3 +58,4 @@ Check out these open-source projects:
 - https://github.com/pieroxy/lz-string
 - https://github.com/effekseer/EffekseerForWebGL
 - https://github.com/localForage/localForage
+- https://gitlab.com/Petschko/Java-RPG-Maker-MV-Decrypter

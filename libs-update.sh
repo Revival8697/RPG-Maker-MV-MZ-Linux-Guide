@@ -25,7 +25,7 @@ copy_files() {
     then
         cp -R "$game_dir"/www/js/libs "$game_dir"/www/js/libs_backup
     fi
-    cp -R ./"$variant libs"/* "$game_dir"/www/js/libs
+    cp -R ./storage/"$variant libs"/* "$game_dir"/www/js/libs
 }
 
 # Find which variant the game is.
