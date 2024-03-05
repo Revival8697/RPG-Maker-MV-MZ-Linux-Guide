@@ -75,4 +75,14 @@ fi
 find "$game_dir"/www -type f -name "*.png" ! -name "icon.png" | parallel optimize_image
 find "$game_dir"/www -type f -name "*.ogg" | parallel optimize_audio
 
+# Search for the line containing "AudioStreaming"
+if grep -q '"name":"AudioStreaming"' "$game_dir"/www/js/plugins.js
+then
+  # Replace the line with status set to false to unload
+  sed -i 's/\("name":"AudioStreaming","status"\):true/\1:false/' "$game_dir"/www/js/plugins.js
+  echo "Status of AudioStreaming set to false."
+else
+  echo "Line containing AudioStreaming not found."
+fi
+
 echo "Finished!"
