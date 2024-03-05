@@ -3,7 +3,7 @@
 set -e
 
 # Check for required commands
-for cmd in jq pngcheck oxipng cwebp parallel
+for cmd in jq pngcheck oxipng cwebp ffmpeg parallel
 do
   if ! command -v $cmd >/dev/null 2>&1
   then
@@ -24,14 +24,17 @@ if [[ ! -d "$game_dir"/www ]]
 then
   echo "Error: Input path is not a RPG Maker MV/MZ game."; exit 1
 fi
+# Check if files are encrypted
+hasEncryptedImages=$(jq -r '.hasEncryptedImages' "$game_dir"/www/data/System.json)
+hasEncryptedAudio=$(jq -r '.hasEncryptedAudio' "$game_dir"/www/data/System.json)
 
-if [[ $(jq -r '.hasEncryptedImages' "$game_dir"/www/data/System.json) == "true" ]]
+if [[ "$hasEncryptedImages" == "true" ]] || [[ "$hasEncryptedAudio" == "true" ]]
 then
     echo "Files are encrypted. Run the decrypt.sh script."; exit 1
 fi
 
 # Function to optimize image files
-optimize_images() {
+optimize_image() {
   local file="$1"
   # Check if a file is an APNG file
   if pngcheck -v "$file" | grep -q -E "acTL"
@@ -42,7 +45,15 @@ optimize_images() {
   fi
 }
 
-export -f optimize_images
+# Function to optimize audio files
+optimize_audio() {
+    local file="$1"
+    ffmpeg -i "$file" -c:a libopus "${file%.ogg}.opus"
+    mv "${file%.ogg}.opus" "$file"
+}
+
+export -f optimize_image
+export -f optimize_audio
 
 # Backup original files
 if [ ! -d "$game_dir"/www_backup ]
@@ -60,7 +71,8 @@ else
   echo >&2 "Icon doesn't exist. Ignoring."
 fi
 
-# Run function multithreaded
-find "$game_dir"/www -type f -name "*.png" ! -name "icon.png" | parallel optimize_images
+# Run functions multithreaded
+find "$game_dir"/www -type f -name "*.png" ! -name "icon.png" | parallel optimize_image
+find "$game_dir"/www -type f -name "*.ogg" | parallel optimize_audio
 
 echo "Finished!"
