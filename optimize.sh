@@ -79,7 +79,7 @@ find "$game_dir"/www -type f -name "*.ogg" | parallel optimize_audio
 if grep -q '"name":"AudioStreaming"' "$game_dir"/www/js/plugins.js
 then
   # Replace the line with status set to false to unload
-  sed -i 's/\("name":"AudioStreaming","status"\):true/\1:false/' "$game_dir"/www/js/plugins.js
+  sed -i 's/\("name"\s*:\s*"AudioStreaming"\s*,"status"\s*:\s*\)true/\1false/' "$game_dir"/www/js/plugins.js
   echo "Status of AudioStreaming set to false."
 else
   echo "Line containing AudioStreaming not found."
