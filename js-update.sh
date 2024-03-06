@@ -25,9 +25,9 @@ copy_files() {
     # Backup original files
     if [[ ! -d "$game_dir"/www/js/libs_backup ]]
     then
-        cp -R "$game_dir"/www/js/libs "$game_dir"/www/js/libs_backup
+        cp -r "$game_dir"/www/js "$game_dir"/www/js_backup
     fi
-    cp -R ./storage/"$variant libs"/* "$game_dir"/www/js/libs
+    cp -r ./storage/"$variant"/* "$game_dir"/www/js
 }
 
 # Check if the game is MV or MZ
