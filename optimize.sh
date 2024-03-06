@@ -75,4 +75,7 @@ fi
 find "$game_dir"/www -type f -name "*.png" ! -name "icon.png" | parallel optimize_image
 find "$game_dir"/www -type f -name "*.ogg" | parallel optimize_audio
 
+# Disable the AudioStreaming plugin
+sed -i 's/\("name"\s*:\s*"AudioStreaming"\s*,"status"\s*:\s*\)true/\1false/' "$game_dir"/www/js/plugins.js
+
 echo "Finished!"
