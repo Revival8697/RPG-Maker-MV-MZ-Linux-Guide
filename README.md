@@ -39,8 +39,8 @@ Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/12331
     ./decrypt.sh path/to/game_dir
     ```
 
-### Optimizing the Image Files
-This step requires the image files to be decrypted and helps reduce the size of the image files.
+### Optimizing the Image and Audio Files
+This requires decrypting the game files. This helps reduce the overall file size.
 - Open a terminal in this repository folder.
 
 - Run the `optimize.sh` script:
