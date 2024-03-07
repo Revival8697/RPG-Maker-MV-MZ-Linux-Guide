@@ -29,7 +29,7 @@ then
 fi
 
 # Launch the main executable
-if ! "$XDG_DATA_HOME"/nwjs/nw --ozone-platform=x11
+if ! "$XDG_DATA_HOME"/nwjs/nw --ozone-platform-hint=auto
 then
     echo "Error: Failed to launch."; exit 1
 fi
