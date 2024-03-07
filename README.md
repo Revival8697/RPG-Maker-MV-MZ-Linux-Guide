@@ -25,9 +25,9 @@ Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/12331
 
 - Open a terminal in this repository folder.
 
-- Execute the `libs-update.sh` script:
+- Execute the `js-update.sh` script:
     ```
-    ./libs-update.sh path/to/game_dir
+    ./js-update.sh path/to/game_dir
     ```
     **Note**: Most RPG Maker MV games should handle being updated to Pixi v4.8 without any issues. If you encounter any problems, fallback to Pixi v4.4 by renaming `www/js/libs/pixi44.js` to `www/js/libs/pixi.js`.
 
