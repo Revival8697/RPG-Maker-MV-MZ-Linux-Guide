@@ -50,13 +50,13 @@ This requires decrypting the game files. This helps reduce the overall file size
 
 # Credits
 Check out these open-source projects:
-- https://github.com/adlerosn/cicpoffs
 - https://github.com/nwjs/nw.js
 - https://github.com/m5kro/Painless-Porter-CLI
-- https://github.com/pixijs/pixijs
-- https://github.com/darsain/fpsmeter
-- https://github.com/pixijs/tilemap/tree/v4.x
+- https://github.com/adlerosn/cicpoffs
+- https://gitlab.com/Petschko/Java-RPG-Maker-MV-Decrypter
+- https://github.com/fregante/iphone-inline-video
 - https://github.com/pieroxy/lz-string
+- https://github.com/pixijs/tilemap/tree/v4.x
+- https://github.com/pixijs/pixijs
 - https://github.com/effekseer/EffekseerForWebGL
 - https://github.com/localForage/localForage
-- https://gitlab.com/Petschko/Java-RPG-Maker-MV-Decrypter
