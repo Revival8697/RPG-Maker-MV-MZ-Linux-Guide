@@ -66,7 +66,7 @@ read INPUT
 # Fill the "name" parameter
 if [[ -n "$INPUT" ]]
 then
-    jq '.name = "$INPUT"' "$game_dir"/package.json > "$game_dir"/package.json.tmp
+    jq --arg input "$INPUT" '.name = $input' "$game_dir"/package.json > "$game_dir"/package.json.tmp
 else
     jq '.name = "default"' "$game_dir"/package.json > "$game_dir"/package.json.tmp
 fi
