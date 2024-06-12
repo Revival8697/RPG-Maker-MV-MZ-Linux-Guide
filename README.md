@@ -29,7 +29,6 @@ Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/12331
     ```
     ./js-update.sh path/to/game_dir
     ```
-    **Note**: Most RPG Maker MV games should handle being updated to Pixi v4.8 without any issues. If you encounter any problems, fallback to Pixi v4.4 by renaming `www/js/libs/pixi44.js` to `www/js/libs/pixi.js`.
 
 ### Decrypting the Game Files
 - Open a terminal in this repository folder.
@@ -50,13 +49,9 @@ This requires decrypting the game files. This helps reduce the overall file size
 
 # Credits
 Check out these open-source projects:
-- https://github.com/nwjs/nw.js
+- https://github.com/bakustarver/rpgmakermlinux-cicpoffs
 - https://github.com/m5kro/Painless-Porter-CLI
 - https://github.com/adlerosn/cicpoffs
-- https://gitlab.com/Petschko/Java-RPG-Maker-MV-Decrypter
-- https://github.com/fregante/iphone-inline-video
-- https://github.com/pieroxy/lz-string
-- https://github.com/pixijs/tilemap/tree/v4.x
+- https://github.com/nwjs/nw.js
 - https://github.com/pixijs/pixijs
-- https://github.com/effekseer/EffekseerForWebGL
-- https://github.com/localForage/localForage
+- https://gitlab.com/Petschko/Java-RPG-Maker-MV-Decrypter
