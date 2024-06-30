@@ -45,9 +45,10 @@ then
 fi
 
 LATEST=$(jq -r '.latest' "$TMP_FILE")
-VERSIONS=$(jq -r '.versions[].version' "$TMP_FILE" | head -20 | awk '{ORS = (NR%5 ? ", " : "\n")} {print}')
+VERSIONS=$(jq -r '.versions[].version' "$TMP_FILE" | awk '{ORS = (NR%5 ? ", " : "\n")} {print}')
+LAST20=$(echo "$VERSIONS" | head -4)
 
-echo -e "Listing 20 most recent versions:\n$VERSIONS\n"
+echo -e "Listing 20 most recent versions:\n$LAST20\n"
 echo -e "Enter the version (including the v) you wish to download.\nLeft blank and press Enter to download the latest version."
 
 read INPUT
