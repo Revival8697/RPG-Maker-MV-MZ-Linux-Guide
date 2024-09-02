@@ -22,7 +22,7 @@ for item in "$src_dir"/*; do
   fi
 done
 
-wine ./Game.exe
+wine ./nw.exe
 
 # Remove existing symlinks in game_dir
 find "$dst_dir" -type l -not -name "Game.sh" -exec rm {} \;
