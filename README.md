@@ -52,8 +52,6 @@ This requires decrypting the game files. This helps reduce the overall file size
 
 # Credits
 Check out these open-source projects:
-- https://github.com/adlerosn/cicpoffs
-- https://github.com/bakustarver/rpgmakermlinux-cicpoffs
 - https://github.com/doitsujin/dxvk
 - https://github.com/m5kro/Painless-Porter-CLI
 - https://github.com/nwjs/nw.js
