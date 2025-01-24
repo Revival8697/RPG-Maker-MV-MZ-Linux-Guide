@@ -52,7 +52,6 @@ This requires decrypting the game files. This helps reduce the overall file size
 
 # Credits
 Check out these open-source projects:
-- https://github.com/HansKristian-Work/vkd3d-proton
 - https://github.com/adlerosn/cicpoffs
 - https://github.com/bakustarver/rpgmakermlinux-cicpoffs
 - https://github.com/doitsujin/dxvk
