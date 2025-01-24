@@ -44,6 +44,6 @@ do
 done
 
 # Let the game know files are now decrypted
-jq '.hasEncryptedAudio = false | .hasEncryptedImages = false' "$game_dir"/www/data/System.json > "$game_dir"/www/data/System.json.temp && mv "$game_dir"/www/data/System.json.temp "$game_dir"/www/data/System.json
+jq -c '.hasEncryptedAudio = false | .hasEncryptedImages = false' "$game_dir"/www/data/System.json > "$game_dir"/www/data/System.json.temp && mv "$game_dir"/www/data/System.json.temp "$game_dir"/www/data/System.json
 
 echo "Finished."
