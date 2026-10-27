@@ -1,28 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -e
 
-# Check if nwjs_dir and game_dir exist
-if [ ! -d ~/.local/share/nwjs-v0.48.4-win-x64/ ] || [ ! -d ./www ]; then
-    echo "Error: nwjs_dir or game_dir not found."
+# Resolve game directory relative to this script
+GAME_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Verify system-provided 'nw' executable is available
+if ! command -v nw >/dev/null 2>&1; then
+    echo >&2 "Error: System-provided 'nw' executable not found in PATH."
     exit 1
 fi
 
-# Set the source and destination directories
-src_dir=~/.local/share/nwjs-v0.48.4-win-x64/
-dst_dir=./
-
-# Remove existing symlinks in game_dir
-find "$dst_dir" -type l -not -name "Game.sh" -exec rm {} \;
-
-# Loop through all files and folders in the source directory
-for item in "$src_dir"/*; do
-  # Skip the Game.sh file
-  if [ "$(basename "$item")" != "Game.sh" ]; then
-    # Create a symbolic link in the destination directory
-    ln -s "$item" "$dst_dir/$(basename "$item")"
-  fi
-done
-
-wine ./nw.exe
-
-# Remove existing symlinks in game_dir
-find "$dst_dir" -type l -not -name "Game.sh" -exec rm {} \;
+# Launch the game natively using the system NW.js installation
+exec nw "$GAME_DIR" "$@"

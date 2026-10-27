@@ -1,60 +1,58 @@
 # RPG-Maker-MV/MZ-Linux-Guide
 This guide will assist you in running and managing RPG Maker MV/MZ games natively on Linux.
 
-## Setup wine environment
+## Prerequisites
+Make sure NW.js is installed on your system and accessible as `nw` in your `$PATH`.
+
+## Verify system environment
 - Open a terminal in this repository folder.
 
-- Run the `environment-setup.sh` script:
-    ```
+- Run the `environment-setup.sh` script to verify your system `nw` executable and other utilities:
+    ```bash
     $ ./environment-setup.sh
     ```
-    **Note**: You only have to run this once. You can use this script to check for updates.
 
 ## Setup game folder
-- Open a terminal in this repository folder.
-
-- Run the `game-setup.sh` script and follow the on-screen steps:
-    ```
+- Run the `game-setup.sh` script:
+    ```bash
     $ ./game-setup.sh path/to/game_directory
+    ```
+- Once set up, run the game using either method:
+    ```bash
+    # 1. Directly using the system nw CLI:
+    $ nw path/to/game_directory
+
+    # 2. Using the launcher script inside the game folder:
+    $ path/to/game_directory/Game.sh
     ```
 
 ## Optional modifications
 
 ### Update game libraries
-Acording to [this thread](https://forums.rpgmakerweb.com/index.php?threads/123317), updating `pixi.js` can enhance performance (untested).
+According to [this thread](https://forums.rpgmakerweb.com/index.php?threads/123317), updating `pixi.js` can enhance performance.
 
-
-This script also update core files to the latest version if game is MV.
-
-- Open a terminal in this repository folder.
+This script also updates core engine files if the game is MV.
 
 - Run the `lib-update.sh` script:
-    ```
+    ```bash
     $ ./lib-update.sh path/to/game_directory
     ```
 
-### Decrypt game Files
-- Open a terminal in this repository folder.
-
+### Decrypt game files
 - Run the `decrypt.sh` script:
-    ```
+    ```bash
     $ ./decrypt.sh path/to/game_directory
     ```
 
-### Optimize image and audio Files
-This requires decrypting the game files. This helps reduce the overall file size.
-- Open a terminal in this repository folder.
-
+### Optimize image and audio files
+This requires decrypting the game files first. It losslessly optimizes PNG images and remuxes OGG audio to strip redundant metadata/embedded artwork.
 - Run the `optimize.sh` script:
-    ```
+    ```bash
     $ ./optimize.sh path/to/game_directory
     ```
 
 # Credits
 Check out these open-source projects:
-- https://github.com/doitsujin/dxvk
-- https://github.com/m5kro/Painless-Porter-CLI
 - https://github.com/nwjs/nw.js
 - https://github.com/pixijs/pixijs
 - https://gitlab.com/Petschko/Java-RPG-Maker-MV-Decrypter
-- https://gitlab.winehq.org/wine/wine
