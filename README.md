@@ -39,10 +39,22 @@ This script also updates core engine files if the game is MV.
     ```
 
 ### Decrypt game files
+Decryption is handled natively using the high-performance Rust-based `rpgmv-decrypter` utility (precompiled in `./storage/rpgmv-decrypter` or discovered via `$PATH`). This completely removes the legacy Java/JRE dependency and provides multi-threaded parallel decryption with automatic key discovery.
+
 - Run the `decrypt.sh` script:
     ```bash
-    $ ./decrypt.sh path/to/game_directory
+    $ ./decrypt.sh path/to/game_directory [optional_hex_key]
     ```
+
+If an explicit encryption key is omitted, the tool automatically detects the key from `System.json` or derives it directly from encrypted PNG image headers.
+
+*(Optional)* To compile or update `rpgmv-decrypter` from source using the Rust toolchain:
+```bash
+git clone https://github.com/Revival8697/Rust-RPG-Maker-MV-Decrypter.git
+cd Rust-RPG-Maker-MV-Decrypter
+cargo build --release
+cp target/release/rpgmv-decrypter /path/to/RPG-Maker-MV-MZ-Linux-Guide/storage/
+```
 
 ### Optimize image and audio files
 This requires decrypting the game files first. It losslessly optimizes PNG images and remuxes OGG audio to strip redundant metadata/embedded artwork.
@@ -55,4 +67,4 @@ This requires decrypting the game files first. It losslessly optimizes PNG image
 Check out these open-source projects:
 - https://github.com/nwjs/nw.js
 - https://github.com/pixijs/pixijs
-- https://gitlab.com/Petschko/Java-RPG-Maker-MV-Decrypter
+- https://github.com/Revival8697/Rust-RPG-Maker-MV-Decrypter

@@ -4,7 +4,7 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Check for required commands
-for cmd in jq java; do
+for cmd in jq; do
   if ! command -v "$cmd" >/dev/null 2>&1; then
     echo >&2 "Error: '$cmd' is required but it is not installed. Aborting."
     exit 1
@@ -12,18 +12,19 @@ for cmd in jq java; do
 done
 
 # Check arguments
-if [ $# -ne 1 ]; then
-    echo "Usage: $0 path/to/game_dir"
+if [ $# -lt 1 ] || [ $# -gt 2 ]; then
+    echo "Usage: $0 path/to/game_dir [hex_key]"
     exit 1
 fi
 
 game_dir="${1%/}"
+custom_key="${2:-}"
 
 if [ ! -d "$game_dir" ]; then
     echo >&2 "Error: Directory '$game_dir' does not exist."
     exit 1
 fi
-# Resolve to absolute path (critical for decrypter.jar path-stripping logic)
+# Resolve to absolute path
 game_dir="$(cd "$game_dir" && pwd)"
 
 # Determine data root
@@ -37,21 +38,31 @@ else
     exit 1
 fi
 
-DECRYPTER_JAR="$SCRIPT_DIR/storage/RPG Maker MV Decrypter.jar"
-if [ ! -f "$DECRYPTER_JAR" ]; then
-    echo >&2 "Error: Decrypter jar not found at '$DECRYPTER_JAR'."
+# Locate native Rust decrypter binary (bundled in storage/ or in PATH)
+DECRYPTER_BIN=""
+if [ -x "$SCRIPT_DIR/storage/rpgmv-decrypter" ]; then
+    DECRYPTER_BIN="$SCRIPT_DIR/storage/rpgmv-decrypter"
+elif command -v rpgmv-decrypter >/dev/null 2>&1; then
+    DECRYPTER_BIN="$(command -v rpgmv-decrypter)"
+fi
+
+if [ -z "$DECRYPTER_BIN" ]; then
+    echo >&2 "Error: 'rpgmv-decrypter' binary not found at '$SCRIPT_DIR/storage/rpgmv-decrypter' or in PATH."
+    echo >&2 "Build it using 'cargo build --release' or place the compiled binary in 'storage/'."
     exit 1
 fi
 
 # Decrypt files
 echo "Decrypting game assets..."
-if ! java -jar "$DECRYPTER_JAR" decrypt "$game_dir" "$game_dir"; then
+cmd=("$DECRYPTER_BIN" "decrypt" "$game_dir" "--in-place")
+if [ -n "$custom_key" ]; then
+    cmd+=("-k" "$custom_key")
+fi
+
+if ! "${cmd[@]}"; then
     echo >&2 "Error: Decryption process failed. Aborting."
     exit 1
 fi
-
-# Safe cleanup of decrypter temp files
-rm -rf ./output ./updateCache.pref
 
 # Extensions of encrypted files
 extensions=(".rpgmvo" ".rpgmvm" ".rpgmvp" ".ogg_" ".m4a_" ".png_")

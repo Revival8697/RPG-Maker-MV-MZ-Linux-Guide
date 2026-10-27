@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 echo "=== RPG Maker Linux Environment Check ==="
 
 has_error=false
@@ -31,12 +33,22 @@ fi
 
 # Check for optional tools used by optional scripts
 echo -e "\nChecking optional utilities for asset tools:"
-for tool in java ffmpeg parallel oxipng; do
+for tool in rpgmv-decrypter ffmpeg parallel oxipng; do
     echo -n "  - $tool: "
-    if command -v "$tool" >/dev/null 2>&1; then
-        echo "Found"
+    if [ "$tool" = "rpgmv-decrypter" ]; then
+        if [ -x "$SCRIPT_DIR/storage/rpgmv-decrypter" ]; then
+            echo "Found (bundled in storage/)"
+        elif command -v "$tool" >/dev/null 2>&1; then
+            echo "Found ($(command -v "$tool"))"
+        else
+            echo "Not found (optional; used by decrypt.sh)"
+        fi
     else
-        echo "Not found (optional; used by $(case $tool in java) echo "decrypt.sh" ;; *) echo "optimize.sh" ;; esac))"
+        if command -v "$tool" >/dev/null 2>&1; then
+            echo "Found"
+        else
+            echo "Not found (optional; used by optimize.sh)"
+        fi
     fi
 done
 
