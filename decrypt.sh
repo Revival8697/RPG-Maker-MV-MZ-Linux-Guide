@@ -69,7 +69,7 @@ extensions=(".rpgmvo" ".rpgmvm" ".rpgmvp" ".ogg_" ".m4a_" ".png_")
 
 echo "Cleaning up leftover encrypted files..."
 for ext in "${extensions[@]}"; do
-  find "$game_dir" -type f -name "*$ext" -delete
+  find "$game_dir" \( -type f -o -type l \) -name "*$ext" -delete
 done
 
 # Let the game know files are now decrypted

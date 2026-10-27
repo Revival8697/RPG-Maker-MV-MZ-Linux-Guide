@@ -28,6 +28,20 @@ Make sure NW.js is installed on your system and accessible as `nw` in your `$PAT
 
 ## Optional modifications
 
+### Fix asset casing (case-sensitive filesystem errors)
+On Linux filesystems (such as ext4/btrfs), file paths are case-sensitive. RPG Maker games developed on Windows often contain case mismatches between the references in `data/*.json` and the actual filenames on disk (e.g. `Futuristic_A5` in `Tilesets.json` vs `futuristic_a5.rpgmvp` on disk), resulting in `Failed to load: ...` errors.
+
+This script parses all references in `data/`, matches files case-insensitively, and safely renames mismatched files to the exact expected casing using a two-step rename pattern.
+
+- Run the `fix-asset-casing.sh` script:
+    ```bash
+    $ ./fix-asset-casing.sh path/to/game_directory
+    ```
+- Use `--dry-run` to preview changes without modifying files:
+    ```bash
+    $ ./fix-asset-casing.sh --dry-run path/to/game_directory
+    ```
+
 ### Update game libraries
 According to [this thread](https://forums.rpgmakerweb.com/index.php?threads/123317), updating `pixi.js` can enhance performance.
 

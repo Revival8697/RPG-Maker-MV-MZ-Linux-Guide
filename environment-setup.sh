@@ -31,6 +31,16 @@ else
     has_error=true
 fi
 
+# Check for required core utility: python3
+echo -n "Checking for 'python3'... "
+if command -v python3 >/dev/null 2>&1; then
+    echo "Found ($(python3 --version))"
+else
+    echo "NOT FOUND"
+    echo >&2 "  [!] Error: 'python3' is required by fix-asset-casing.sh."
+    has_error=true
+fi
+
 # Check for optional tools used by optional scripts
 echo -e "\nChecking optional utilities for asset tools:"
 for tool in rpgmv-decrypter ffmpeg parallel oxipng; do
