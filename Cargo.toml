@@ -1,0 +1,28 @@
+[package]
+name = "rpgmaker-helper"
+version = "0.0.1"
+edition = "2021"
+rust-version = "1.70"
+description = "High-performance native CLI helper for running, fixing, and optimizing RPG Maker MV and MZ games on Linux"
+license = "GPL-2.0"
+
+[lib]
+name = "rpgmaker_core"
+path = "src/lib.rs"
+
+[[bin]]
+name = "rpgmaker-helper"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4.5", features = ["derive", "cargo"] }
+rayon = "1.10"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "2.0"
+anyhow = "1.0"
+walkdir = "2.5"
+hex = "0.4"
+tempfile = "3"
+oxipng = { version = "10.2", default-features = false, features = ["zopfli"] }
+regex = "1.11"
